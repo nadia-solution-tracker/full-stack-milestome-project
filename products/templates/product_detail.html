@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="product-display_detail">
+        <img class="product_image_detail" src="{{ MEDIA_URL }}{{ product.image }}"/>
+        <div class="product-info">
+            <span class="product_name_detail">{{ product.name }}</span><br/>
+            <span class="product_author_detail">{{ product.author }}</span><br/>
+           
+            <p class="product_description_detail">{{ product.description }}</p>
+              
+             <form method="post" action="" class="store_add_to_cart">
+                {% csrf_token %}
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                    </span>
+                </div>
+            </form>
+            
+            <form method="post" action="" class="store_view_cart">
+                {% csrf_token %}
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success btnViewCart" type="submit"><i class="fa fa-shopping-cart"></i>View Cart</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

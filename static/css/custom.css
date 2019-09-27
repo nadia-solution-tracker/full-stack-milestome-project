@@ -29,7 +29,35 @@ footer{
 }
 
 
-/* Home_Page styles */
+/* Product Detail styles */
+
+.product_display_detail{
+    text-align: center;
+    margin-top:  20px;
+}
+
+.product_image_detail{
+    margin-bottom:20px;
+    float:left;
+    padding-top: 40px;
+    padding-right:40px;
+}
+
+
+.product_name_detail{
+    font-size:30px;
+    display:block;
+    font-weight:bold;
+    padding-top: 40px;
+    font-family: 'Mountains of Christmas', cursive !important;
+}
+
+.product_author_detail{
+    font-size: 16px;
+    display: block;
+  
+}
+
 
 /* Product_List style */
 .store_product_image{
