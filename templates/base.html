@@ -1,0 +1,85 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Online Book Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <!-- Fixed masthead -->
+      <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home_page' %}">The Online Book Store</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a href="{% url 'home_page' %}" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="{% url 'products' %}" class="nav-link">Browse All</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Profile</a></li>
+                        <li class="nav-item"><a  class="nav-link"href="">Log Out</a></li>
+                    {%  else %}
+                        <li class="nav-item"><a href="{% url 'products' %}" class="nav-link">Browse All</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item"><a  class="nav-link" href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            Cart
+                            {% if product_count > 0 %}
+                            <label class="badge badge-warning">{{ product_count }}</label>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+  </nav>
+        {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+    <footer class="container-fluid">
+            <div id="footer-details" class="row">
+                <div class="col-sm-4">
+                  <ul class="list-inline social-links">
+                        <li><a target="_blank" href="https://www.facebook.com/thebeatles/"><i class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" href="https://twitter.com/thebeatles?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" href="https://www.youtube.com/thebeatles"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                 <div class="col-sm-4 text-center">
+                  <a id="go-to-top" href="#home"><span class="glyphicon glyphicon-chevron-up"></span>Back to top</a>
+                </div>
+                <div class="col-sm-4">
+                    <p class="inline-block text-right">
+                       &copy;Nadia Barreto, <br/>
+                       A CODE INSITITUTE MILESTONE PROJECT
+                    </p>
+                </div>
+            </div>
+        </footer>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+</html>
