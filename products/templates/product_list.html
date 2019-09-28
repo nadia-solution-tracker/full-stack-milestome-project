@@ -1,60 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
   <div class="container home_page_container">
-
     <div class="row">
-
       <div class="col-lg-3">
-
         <h1 class="my-1">Categories</h1>
         <div class="list-group">
           {% for cat in category %}
-            <a href="#" class="list-group-item">{{cat.name}}</a>
-            {% endfor %}
+            <a href="{% url 'show_products' cat.name %}" class="list-group-item">{{cat.name}}</a>
+          {% endfor %}
         </div>
-
       </div>
       <!-- /.col-lg-3 -->
-
-      <div class="col-lg-9">
-
       
+      <div class="col-lg-9">
         <div class="row">
-   {% for product in products %}
-          <div class="col-lg-4 col-md-6 mb-4">
-           
-                         <div class="card h-100">
+          {% for product in products %}
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
                 <a href="{% url 'product_detail' product.id %}"><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#">{{product.name}}</a>
                   </h4>
                   <h5>${{product.price}} CAD</h5>
-                 
                 </div>
                 <div class="card-footer">
-                              <form method="post" action="" class="store_add_to_cart">
-                                      {% csrf_token %}
-                                      <div class="input-group">
-                                          <span class="input-group-btn">
-                                              <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
-                                          </span>
-                                      </div>
-                                  </form>
-  
+                  <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
+                      {% csrf_token %}
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                            </span>
+                        </div>
+                  </form>
                 </div>
               </div>
             </div>
-      {% endfor %}
-
-           </div>
-
+          {% endfor %}
         </div>
         <!-- /.row -->
-
       </div>
       <!-- /.col-lg-9 -->
 
@@ -63,31 +48,31 @@
 
   </div>
   <!-- /.container -->
-    <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-sm-12">
-                    <div class="pagination">
-                        {% if products.has_previous %}
-                            <a class="pagination-action" href="?page=1">First</a>
-                            <a class="pagination-action" href="?page={{ products.previous_page_number }}">Previous</a>
-                        {% endif %}
+  
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-sm-12">
+        <div class="pagination">
+            {% if products.has_previous %}
+              <a class="pagination-action" href="?page=1">First</a>
+              <a class="pagination-action" href="?page={{ products.previous_page_number }}">Previous</a>
+            {% endif %}
                 
-                        {% for num in products.paginator.page_range %}
+            {% for num in products.paginator.page_range %}
+              {% if products.number == num %}
+                <span class="pagination-number pagination-current">{{ num }}</span>
+              {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
+                <a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
+              {% endif %}
                 
-                            {% if products.number == num %}
-                                <span class="pagination-number pagination-current">{{ num }}</span>
-                                {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
-                                <a class="pagination-number" href="?page={{ num }}">{{ num }}</a>
-                            {% endif %}
+            {% endfor %}
                 
-                        {% endfor %}
+            {% if products.has_next %}
+              <a class="pagination-action" href="?page={{ products.next_page_number }}">Next</a>
+              <a class="pagination-action" href="?page={{ products.paginator.num_pages }}">Last</a>
+            {% endif %}
                 
-                        {% if products.has_next %}
-                            <a class="pagination-action" href="?page={{ products.next_page_number }}">Next</a>
-                            <a class="pagination-action" href="?page={{ products.paginator.num_pages }}">Last</a>
-                        {% endif %}
-                
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+  </div>
   
 {% endblock %}
