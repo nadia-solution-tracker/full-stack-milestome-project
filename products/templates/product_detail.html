@@ -11,7 +11,7 @@
            
             <p class="product_description_detail">{{ product.description }}</p>
               
-             <form method="post" action="" class="store_add_to_cart">
+             <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
                 {% csrf_token %}
                 <div class="input-group">
                     <span class="input-group-btn">

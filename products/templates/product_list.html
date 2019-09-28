@@ -24,6 +24,11 @@
                     <a href="#">{{product.name}}</a>
                   </h4>
                   <h5>${{product.price}} CAD</h5>
+                  {% if product.instock > 0 %}
+                    <span>In Stock</span>
+                    {% else %}
+                    <span>Out of Stock</span>
+                    {% endif %}
                 </div>
                 <div class="card-footer">
                   <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
