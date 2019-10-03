@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
 
 {% block content %}
 
@@ -34,6 +36,51 @@
             </form>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 review-text">
+            {% if user.is_authenticated %}
+            <h1>Review This Book</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | as_bootstrap }}
+                <div class="btn-review">
+                    <button type="submit" class="btn btn-info">Add Review</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-2 offset-md-6">
+            <p>{{ review.rating }}</p>
+        </div>
+        <div class=col-12>
+            {% else %}
+            <h1>Please log in to leave a review</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-12">
+        <h3>Book Reviews</h3>
+    </div>
+    <hr>
+    {% for review in reviews %}
+    <div class="row">
+        <div class="col-4">
+            <p>{{ review.user }}{{ review.pub_date }}</p>
+        </div>
+        <div class="col-6">
+            <p>{{ review.comment }}</p>
+        </div>
+        <div class="col-2">
+            <p>Rating: {{ review.rating }}</p>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
 </div>
 
 {% endblock %}

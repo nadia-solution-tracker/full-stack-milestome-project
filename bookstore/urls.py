@@ -18,6 +18,7 @@ from django.contrib import admin
 from accounts import urls as urls_accounts
 from home import urls as urls_home
 from products import urls as urls_products
+from reviews import urls as review_urls
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
 from django.views import static
@@ -28,7 +29,8 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^$',include(urls_home)),
     url(r'^products/',include(urls_products)),
+    url(r'^reviews/', include(review_urls)),
     url(r'^cart/',include(urls_cart)),
-     url(r'^checkout/', include(urls_checkout)),
+    url(r'^checkout/', include(urls_checkout)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]

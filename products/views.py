@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from bookstore.settings import MEDIA_URL
+from reviews.forms import ReviewForm
+from reviews.models import Review
 
 # Create your views here.
 def all_products(request):
@@ -21,9 +23,22 @@ def all_products(request):
 
 def product_detail(request,id):
     product= get_object_or_404(Product, id=id)
+    reviews = Review.objects.filter(product_id=id).order_by('pub_date')
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.save()
+    else:
+        form = ReviewForm()
+    
 
     context={
         'product': product,
+        'reviews' : reviews,
+        'form': form
     }
     return render(request,'product_detail.html',context)
     
