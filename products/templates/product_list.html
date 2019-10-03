@@ -35,7 +35,11 @@
                       {% csrf_token %}
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                               {% if product.instock > 0 %}
+                               <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                               {% else %}
+                               <button class="btn btn-success btnAddToCart"  type="submit" disabled><i class="fa fa-shopping-cart"></i>Out of Stock</button>
+                               {% endif %}
                             </span>
                         </div>
                   </form>
