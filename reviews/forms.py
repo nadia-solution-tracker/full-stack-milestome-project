@@ -11,8 +11,8 @@ class ReviewForm( forms.ModelForm ):
         (4, '4'),
         (5, '5'),
     )
-    comment = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
-    rating = forms.ChoiceField(choices=RATING_CHOICES, widget=forms.RadioSelect(attrs={'style': 'display: inline-block'}))
+    comment = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":25}))
+    rating = forms.Select(choices=RATING_CHOICES)
 
     class Meta:
         model = Review

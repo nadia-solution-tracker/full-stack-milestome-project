@@ -63,7 +63,7 @@
                 <a href="#"><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{product.name}}</a>
+                    <a href="{% url 'product_detail' product.id %}">{{product.name}}</a>
                   </h4>
                   <h5>${{product.price}} CAD</h5>
                  

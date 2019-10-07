@@ -9,10 +9,22 @@
         <img class="product_image_detail" src="{{ MEDIA_URL }}{{ product.image }}"/>
         <div class="product-info">
             <span class="product_name_detail">{{ product.name }}</span><br/>
-            <span class="product_author_detail">{{ product.author }}</span><br/>
-            <span class="product_author_detail">Views: {{ product.views }}</span><br/>
-            <p class="product_description_detail">{{ product.description }}</p>
-              
+            <div class="display_content">Author:&nbsp; &nbsp;{{ product.author }}</div><br/>
+            {% if reviews.count == 0  or reviews.count == 1 %}
+                {{reviews.count}} Review
+            {% else %}
+                {{reviews.count}} Reviews
+            {% endif %}
+            <span><a href="#reviewform">Add your review</a></span><br/><br/>
+            <span class="product_views_detail">Views:&nbsp; &nbsp;{{ product.views }}</span><br/><br/>
+            Price:&nbsp; &nbsp; ${{ product.price }}</span><br/><br/>
+            {% if product.instock > 0 %}
+                In Stock :&nbsp; &nbsp; {{ product.instock }}</span><br/><br/>
+            {% else %}
+                Out of Stock
+            {% endif %}
+            <div class="row product_detail_buttons">  
+  
              <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
                 {% csrf_token %}
                 <div class="input-group">
@@ -25,7 +37,7 @@
                     </span>
                 </div>
             </form>
-            
+            &nbsp;&nbsp;
             <form method="post" action="" class="store_view_cart">
                 {% csrf_token %}
                 <div class="input-group">
@@ -34,15 +46,20 @@
                     </span>
                 </div>
             </form>
+
+</div>
+<br/>
+            <p class="product_description_detail">{{ product.description }}</p>
         </div>
     </div>
-</div>
+</div>  
 
-<div class="container">
+
+<div class="container" id="reviewform">
     <div class="row">
         <div class="col-12 review-text">
             {% if user.is_authenticated %}
-            <h1>Review This Book</h1>
+            <h1>Leave a Review</h1>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | as_bootstrap }}
@@ -67,20 +84,23 @@
         <h3>Book Reviews</h3>
     </div>
     <hr>
+    {% if reviews %}
+<div>
     {% for review in reviews %}
-    <div class="row">
-        <div class="col-4">
-            <p>{{ review.user }}{{ review.pub_date }}</p>
-        </div>
-        <div class="col-6">
-            <p>{{ review.comment }}</p>
-        </div>
-        <div class="col-2">
-            <p>Rating: {{ review.rating }}</p>
-        </div>
+    <div>
+	<h4>
+        	{{ review.user }}
+        </h4>
+        <h6>rated {{ review.rating }} of 5 by {{ review.user }}</h6>
+        {{review.pub_date}}
+        <p>{{ review.comment }}</p>
     </div>
-    <hr>
+    <hr/>
     {% endfor %}
+</div>
+{% else %}
+<p>No reviews are available.</p>
+{% endif %}
 </div>
 
 {% endblock %}

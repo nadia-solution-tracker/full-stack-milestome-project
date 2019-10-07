@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Mountains+of+Christmas&display=swap');
 
-body {
-    
-    padding-top: 50px;
-   
-}
 
 /*------------------------------------------------------Footer*/
 
@@ -28,13 +23,13 @@ footer{
     padding-top: 20px;
 }
 
+/* Nav bar */
+.navbar-dark .navbar-brand{
+    font-family: 'Mountains of Christmas', cursive !important;
+}
 
 /* Product Detail styles */
 
-.product_display_detail{
-    text-align: center;
-    margin-top:  20px;
-}
 
 .product_image_detail{
     margin-bottom:20px;
@@ -52,11 +47,12 @@ footer{
     font-family: 'Mountains of Christmas', cursive !important;
 }
 
-.product_author_detail{
-    font-size: 16px;
-    display: block;
-  
+.product_detail_buttons{
+    position: absolute;
+    right: 0;
 }
+
+
 /* cart styles */
 .cart-thumbnail-image{
     background-size: contain;
