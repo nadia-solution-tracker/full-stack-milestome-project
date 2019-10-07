@@ -23,7 +23,11 @@ def all_products(request):
 
 def product_detail(request,id):
     product= get_object_or_404(Product, id=id)
+    products_list = Product.objects.all()
     reviews = Review.objects.filter(product_id=id).order_by('pub_date')
+    for product_views in products_list:
+        product_views.views = product_views.views + 1
+        product_views.save()
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():

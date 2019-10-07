@@ -10,7 +10,7 @@
         <div class="product-info">
             <span class="product_name_detail">{{ product.name }}</span><br/>
             <span class="product_author_detail">{{ product.author }}</span><br/>
-           
+            <span class="product_author_detail">Views: {{ product.views }}</span><br/>
             <p class="product_description_detail">{{ product.description }}</p>
               
              <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">

@@ -1,6 +1,7 @@
 from django import forms
 from .models import Review
 
+
 class ReviewForm( forms.ModelForm ):
     RATING_CHOICES = (
         (0, '0'),
@@ -11,7 +12,7 @@ class ReviewForm( forms.ModelForm ):
         (5, '5'),
     )
     comment = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
-    rating = forms.ChoiceField(choices=RATING_CHOICES, widget=forms.RadioSelect)
+    rating = forms.ChoiceField(choices=RATING_CHOICES, widget=forms.RadioSelect(attrs={'style': 'display: inline-block'}))
 
     class Meta:
         model = Review

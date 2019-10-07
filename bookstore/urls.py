@@ -20,7 +20,7 @@ from home import urls as urls_home
 from products import urls as urls_products
 from reviews import urls as review_urls
 from cart import urls as urls_cart
-from checkout import urls as urls_checkout
+from purchases import urls as urls_checkout
 from django.views import static
 from .settings import MEDIA_ROOT
 

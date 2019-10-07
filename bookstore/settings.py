@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'products',
     'home',
     'cart',
-    'checkout',
+    'purchases',
     'reviews'
 ]
 
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'bookstore.urls'
