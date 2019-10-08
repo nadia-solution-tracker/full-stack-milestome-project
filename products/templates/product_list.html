@@ -1,29 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="container home_page_container">
+
+<div class="content">
+   <h1 class="right">Browse Our Online Bookstore Selection</h1>
     <div class="row">
       <div class="col-lg-3">
-        <h1 class="my-1">Categories</h1>
+        <div class="product_list_category">CATEGORY</div>
         <div class="list-group">
           {% for cat in category %}
-            <a href="{% url 'show_products' cat.name %}" class="list-group-item">{{cat.name}}</a>
+            <a href="{% url 'show_products_category' cat.name %}" class="list-group-item">{{cat.name}}</a>
           {% endfor %}
+          
+        </div><br/>
+        <div class="product_list_author">AUTHOR</div>
+       <div class="list-group">
+          {% for aut in author %}
+            <a href="" class="list-group-item">{{aut.firstname}} {{aut.lastname}}</a>
+          {% endfor %}
+          
+        </div>
+        <div class="display">
+            <form action="{% url 'search' %}" method="GET">
+                <input type="text" name='q' placeholder="Search"/>
+                <input type="submit" value="Search"/>
+            </form>
         </div>
       </div>
-      <!-- /.col-lg-3 -->
       
+      <!-- /.col-lg-3 -->
+     
       <div class="col-lg-9">
         <div class="row">
           {% for product in products %}
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="{% url 'product_detail' product.id %}"><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
+                <a href="{% url 'product_detail' product.id %}"><img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
                 <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">{{product.name}}</a>
-                  </h4>
-                  <h5>${{product.price}} CAD</h5>
+                  <span class="one-line">
+                    <strong>
+                    <a href="{% url 'product_detail' product.id %}">{{product.name}}</a></strong>
+                  </span><br/>
+                  <span class="one-line">{{ product.author }}</span><br/><br/>
+                  <strong>${{product.price}} CAD</strong><br/>
                   {% if product.instock > 0 %}
                     <span>In Stock</span>
                     {% else %}
@@ -54,10 +73,8 @@
 
     </div>
     <!-- /.row -->
+</div>
 
-  </div>
-  <!-- /.container -->
-  
   <div class="row">
     <div class="col-md-10 col-md-offset-1 col-sm-12">
         <div class="pagination">

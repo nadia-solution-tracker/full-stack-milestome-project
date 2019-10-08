@@ -4,7 +4,7 @@
 /*------------------------------------------------------Footer*/
 
 footer{
-    background-color: #212529;
+    background-color: #d32630;
     color: #fafafa;
     min-height: 120px;
     margin:0;
@@ -26,16 +26,68 @@ footer{
 /* Nav bar */
 .navbar-dark .navbar-brand{
     font-family: 'Mountains of Christmas', cursive !important;
+    font-size: 30px;
+    font-weight: bold;
 }
+
+.navbar{
+    background-color: #d32630;
+}
+.content{
+    padding-top: 90px;
+}
+.carousel-item img{
+    width:900;
+    height:600;
+}
+
+/* Product List styles */
+.display{
+    padding-top: 20px;
+}
+.right{
+   text-align: center;
+    font-family: 'Mountains of Christmas', cursive ;
+    font-weight: bold;
+}
+
+.product_list_category,
+.product_list_author{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.card-img-top{
+    width: 250px;
+    height: 350px;
+    padding: 15px;
+}
+.card-title{
+      font-family: 'Mountains of Christmas', cursive;
+      font-size: 20px;
+      font-weight: bold;
+      
+}
+.one-line {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 
 /* Product Detail styles */
 
-
+.display_content{
+    font-weight: bold;
+}
 .product_image_detail{
     margin-bottom:20px;
     float:left;
     padding-top: 40px;
     padding-right:40px;
+    width:350px;
+    height: 430px;
 }
 
 
@@ -47,10 +99,7 @@ footer{
     font-family: 'Mountains of Christmas', cursive !important;
 }
 
-.product_detail_buttons{
-    position: absolute;
-    right: 0;
-}
+
 
 
 /* cart styles */

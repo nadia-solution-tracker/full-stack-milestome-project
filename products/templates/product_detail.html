@@ -3,56 +3,57 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-
-<div class="row">
-    <div class="product-display_detail">
-        <img class="product_image_detail" src="{{ MEDIA_URL }}{{ product.image }}"/>
-        <div class="product-info">
-            <span class="product_name_detail">{{ product.name }}</span><br/>
-            <div class="display_content">Author:&nbsp; &nbsp;{{ product.author }}</div><br/>
-            {% if reviews.count == 0  or reviews.count == 1 %}
-                {{reviews.count}} Review
-            {% else %}
-                {{reviews.count}} Reviews
-            {% endif %}
-            <span><a href="#reviewform">Add your review</a></span><br/><br/>
-            <span class="product_views_detail">Views:&nbsp; &nbsp;{{ product.views }}</span><br/><br/>
-            Price:&nbsp; &nbsp; ${{ product.price }}</span><br/><br/>
-            {% if product.instock > 0 %}
-                In Stock :&nbsp; &nbsp; {{ product.instock }}</span><br/><br/>
-            {% else %}
-                Out of Stock
-            {% endif %}
-            <div class="row product_detail_buttons">  
-  
-             <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
-                {% csrf_token %}
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        {% if product.instock > 0 %}
-                            <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
-                        {% else %}
-                            <button class="btn btn-success btnAddToCart"  type="submit" disabled><i class="fa fa-shopping-cart"></i>Out of Stock</button>
-                        {% endif %}
-                    </span>
-                </div>
-            </form>
-            &nbsp;&nbsp;
-            <form method="post" action="" class="store_view_cart">
-                {% csrf_token %}
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-success btnViewCart" type="submit"><i class="fa fa-shopping-cart"></i>View Cart</button>
-                    </span>
-                </div>
-            </form>
-
-</div>
-<br/>
-            <p class="product_description_detail">{{ product.description }}</p>
-        </div>
+<div class="content">
+    <div class="row">
+        <div class="product-display_detail">
+            <img class="product_image_detail" src="{{ MEDIA_URL }}{{ product.image }}"/>
+            <div class="product-info">
+                <span class="product_name_detail">{{ product.name }}</span><br/>
+                <div class="display_content">Author:&nbsp; &nbsp;{{ product.author }}</div><br/>
+                {% if reviews.count == 0  or reviews.count == 1 %}
+                    {{reviews.count}} Review
+                {% else %}
+                    {{reviews.count}} Reviews
+                {% endif %}
+                <span><a href="#reviewform">Add your review</a></span><br/><br/>
+                <span class="product_views_detail">Views:&nbsp; &nbsp;{{ product.views }}</span><br/><br/>
+                Price:&nbsp; &nbsp; ${{ product.price }}</span><br/><br/>
+                {% if product.instock > 0 %}
+                    In Stock :&nbsp; &nbsp; {{ product.instock }}</span><br/><br/>
+                {% else %}
+                    Out of Stock
+                {% endif %}
+                <div class="row product_detail_buttons">  
+      
+                 <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            {% if product.instock > 0 %}
+                                <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                            {% else %}
+                                <button class="btn btn-success btnAddToCart"  type="submit" disabled><i class="fa fa-shopping-cart"></i>Out of Stock</button>
+                            {% endif %}
+                        </span>
+                    </div>
+                </form>
+                &nbsp;&nbsp;
+                <form method="post" action="" class="store_view_cart">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success btnViewCart" type="submit"><i class="fa fa-shopping-cart"></i>View Cart</button>
+                        </span>
+                    </div>
+                </form>
+    
     </div>
-</div>  
+    <br/>
+                <p class="product_description_detail">{{ product.description }}</p>
+            </div>
+        </div>
+    </div>  
+</div>
 
 
 <div class="container" id="reviewform">
