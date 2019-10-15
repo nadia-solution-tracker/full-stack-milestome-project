@@ -14,7 +14,7 @@ def search_products(request):
     if query:
      
         product_list = Product.objects.filter(
-            Q(name__icontains=query) | Q(author__firstname__icontains=query) | Q(author__lastname__icontains=query) | Q(description__icontains=query)
+            Q(name__icontains=query) | Q(author__firstname__icontains=query) | Q(author__lastname__icontains=query) | Q(description__icontains=query) | Q(category__name__icontains=query)
         ).distinct()
     page = request.GET.get('page',1)
     paginator = Paginator(product_list, 6)

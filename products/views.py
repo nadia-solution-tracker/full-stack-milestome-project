@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Category, Author
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseRedirect
 from bookstore.settings import MEDIA_URL
 from reviews.forms import ReviewForm
 from reviews.models import Review
@@ -34,10 +35,11 @@ def product_detail(request,id):
             review.product = product
             review.user = request.user
             review.save()
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
         form = ReviewForm()
     
-
+      
     context={
         'product': product,
         'reviews' : reviews,

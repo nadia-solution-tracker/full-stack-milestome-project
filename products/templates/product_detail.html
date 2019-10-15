@@ -42,14 +42,16 @@
                     {% csrf_token %}
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <button class="btn btn-success btnViewCart" type="submit"><i class="fa fa-shopping-cart"></i>View Cart</button>
+                            <button class="btn btn-success btnViewCart" type="submit"><i class="fa fa-angle-right"></i>View Cart</button>
                         </span>
                     </div>
                 </form>
+                 <p class="product_description_detail">{{ product.description }}</p>
     
     </div>
     <br/>
-                <p class="product_description_detail">{{ product.description }}</p>
+                <button class="btn btn-success" type="submit"><i class="fa fa-angle-left"></i>Back to Previous Page</button>
+              
             </div>
         </div>
     </div>  
@@ -65,7 +67,7 @@
                 {% csrf_token %}
                 {{ form | as_bootstrap }}
                 <div class="btn-review">
-                    <button type="submit" class="btn btn-info">Add Review</button>
+                    <button type="submit" class="btn btn-success">Add Review</button>
                 </div>
             </form>
         </div>
@@ -82,7 +84,7 @@
 
 <div class="container-fluid">
     <div class="col-12">
-        <h3>Book Reviews</h3>
+        <h3>Customer Reviews</h3>
     </div>
     <hr>
     {% if reviews %}

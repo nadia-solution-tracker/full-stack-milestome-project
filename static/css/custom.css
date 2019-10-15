@@ -41,6 +41,13 @@ footer{
     height:600;
 }
 
+/*login and register page*/
+legend{
+     text-align: center;
+    font-family: 'Mountains of Christmas', cursive ;
+    font-weight: bold;
+    font-size:40px;
+}
 /* Product List styles */
 .display{
     padding-top: 20px;
@@ -73,6 +80,7 @@ footer{
 .one-line {
     overflow: hidden;
     white-space: nowrap;
+    word-wrap: break-word;
 }
 
 
@@ -99,7 +107,13 @@ footer{
     font-family: 'Mountains of Christmas', cursive !important;
 }
 
+.product_description_detail{
+    padding-top:20px;
+}
 
+button > i{
+  padding-right:10px;
+}
 
 
 /* cart styles */
@@ -125,6 +139,7 @@ footer{
 .pagination {
     text-align: center;
     margin-top: 1em;
+    border-color: white;
     
 }
 
@@ -132,11 +147,11 @@ footer{
     padding: 0.5em 0.8em;
     border-radius: 2px;
     color: #fff;
-    background-color: #6D85C7;
+    background-color: #28a745;
 }
 
 .pagination-number:hover, .pagination-current {
-    background-color: #3354AA;      
+    background-color: #28a745;   
 }
 
 .pagination-action {

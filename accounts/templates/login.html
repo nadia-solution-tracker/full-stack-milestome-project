@@ -1,15 +1,27 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
-        <fieldset class="form-group">
-            <legend>Login</legend>
-            {% csrf_token %}
-            {{ user_form | as_bootstrap }}
-            
-             <p><a href="{% url 'password_reset' %}">Forgot my password</a></p>
-             
-            <button type="submit" class="btn btn-primary">Login</button>
-        </fieldset>
-    </form>
+<div class="content">
+    <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header"><legend>Login</legend></div>
+                        <div class="card-body">
+                            <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
+                                <fieldset class="form-group">
+                                    {% csrf_token %}
+                                    {{ user_form | as_bootstrap }}
+                                    
+                                     <p><a href="{% url 'password_reset' %}">Forgot my password</a></p>
+                                     
+                                    <button type="submit" class="btn btn-success">Login</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
 {% endblock %}
