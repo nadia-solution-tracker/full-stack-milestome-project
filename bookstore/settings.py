@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import env
+#import env
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3eb09f8cbe7a4f83a6d51278a6b36953.vfs.cloud9.us-east-1.amazonaws.com']
+ALLOWED_HOSTS = ['3eb09f8cbe7a4f83a6d51278a6b36953.vfs.cloud9.us-east-1.amazonaws.com','online-book-store-ecommerce.herokuapp.com']
 
 
 # Application definition
@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'home',
     'cart',
     'purchases',
-    'reviews'
+    'reviews',
+    'search'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     
 ]
 
@@ -92,9 +94,19 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 #     }
 # }
 
-DATABASES = {
+if "DATABASE_URL" in os.environ:
+  DATABASES = {
      'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+    }
+else:
+    print("Database URL not found. Using SQLite instead")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -141,6 +153,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
