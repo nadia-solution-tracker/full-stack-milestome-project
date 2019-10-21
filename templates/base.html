@@ -86,9 +86,11 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script>
-        document.getElementById("sort-by-price").onchange = function () {
-            this.form.submit()
-    }
+    $(function() {
+      $('#sort-by-price').change(function() {
+            $('#sorting-form').submit();
+      });
+    });
     </script>
     <!--<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>-->
     {% block head_js %}

@@ -5,12 +5,13 @@
 <div class="content">
    <h1 class="right">Browse Our Online Bookstore Selection</h1>
    <div class="product-price-sort right-dropdown">
-          <form action = "{% url 'products' %}" name="sort-by-price" id="sort-by-price" method="POST">
-            <select>
-              <option value="Sort-by-Price">Sort By Price</option>
-              <option value="Low-to-High">Low to High</option>
-              <option value="High-to-Low">High to Low</option>
-            </select>
+          <form action = "{% url 'products' %}" id="sorting-form">
+            {% csrf_token %}
+              <select name="sort-by-price" id="sort-by-price">
+                <option value="Sort-by-Price">Sort By Price</option>
+                <option value="Low-to-High">Low to High</option>
+                <option value="High-to-Low">High to Low</option>
+              </select>
           </form> 
         </div>
     <div class="row">
