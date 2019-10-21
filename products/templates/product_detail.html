@@ -38,7 +38,7 @@
                     </div>
                 </form>
                 &nbsp;&nbsp;
-                <form method="post" action="" class="store_view_cart">
+                <form method="post" action="{% url 'view_cart' %}" class="store_view_cart">
                     {% csrf_token %}
                     <div class="input-group">
                         <span class="input-group-btn">
@@ -46,12 +46,20 @@
                         </span>
                     </div>
                 </form>
-                 <p class="product_description_detail">{{ product.description }}</p>
+                 <form method="post" action="{% url 'products' %}" class="store_add_to_cart">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                          <p class="product_description_detail">{{ product.description }}</p>
+                          <button class="btn btn-success" type="submit"><i class="fa fa-angle-left"></i>Back to Previous Page</button>
+                      </span>
+                    </div>
+                </form>
+              
     
     </div>
     <br/>
-                <button class="btn btn-success" type="submit"><i class="fa fa-angle-left"></i>Back to Previous Page</button>
-              
+               
             </div>
         </div>
     </div>  
@@ -82,7 +90,7 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid customer-reviews">
     <div class="col-12">
         <h3>Customer Reviews</h3>
     </div>
@@ -91,6 +99,7 @@
 <div>
     {% for review in reviews %}
     <div>
+        <img class="image-icon" src="http://icons.iconarchive.com/icons/icons8/ios7/512/Users-User-Male-icon.png" alt="image-icon"/>
 	<h4>
         	{{ review.user }}
         </h4>

@@ -57,6 +57,12 @@ legend{
     font-family: 'Mountains of Christmas', cursive ;
     font-weight: bold;
 }
+.right-dropdown{
+    text-align: right;
+    font-family: 'Mountains of Christmas', cursive ;
+    font-weight: bold;
+    padding: 20px;
+}
 
 .product_list_category,
 .product_list_author{
@@ -113,6 +119,12 @@ legend{
 
 button > i{
   padding-right:10px;
+}
+
+.image-icon{
+   height: 60px;
+   width: 80px;
+   float: left;
 }
 
 

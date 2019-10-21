@@ -9,18 +9,33 @@ from reviews.models import Review
 # Create your views here.
 def all_products(request):
     products_list = Product.objects.all()
+    # products_list  = Product.objects.get_queryset()
     category = Category.objects.all()
     author = Author.objects.all()
+   
+    products = products_list.order_by('name')
+    sorting_order =  request.GET.get('sort-by-price')
+    
+    if request.GET.getlist('sort-by-price'):
+        if 'Low-to-High' in request.GET.getlist('sort-by-price'):
+            products  = products_list.order_by('price')
+        if 'High-to-Low' in request.GET.getlist('sort-by-price'):
+            products  = products_list.order_by('-price')
+            
+   
+    paginator = Paginator(products, 6)
     page = request.GET.get('page', 1)
-    paginator = Paginator(products_list, 6)
+  
     try:
         products = paginator.page(page)
     except PageNotAnInteger:
         products = paginator.page(1)
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
+        
+    context = {"products":products,"category":category, "author":author, "sorting_order" : sorting_order}
     
-    return render(request,"product_list.html",{"products":products,"category":category, "author":author})
+    return render(request,"product_list.html", context)
 
 
 def product_detail(request,id):

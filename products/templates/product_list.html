@@ -4,6 +4,15 @@
 
 <div class="content">
    <h1 class="right">Browse Our Online Bookstore Selection</h1>
+   <div class="product-price-sort right-dropdown">
+          <form action = "{% url 'products' %}" name="sort-by-price" id="sort-by-price">
+            <select>
+              <option value="Sort-by-Price">Sort By Price</option>
+              <option value="Low-to-High">Low to High</option>
+              <option value="High-to-Low">High to Low</option>
+            </select>
+          </form> 
+        </div>
     <div class="row">
       <div class="col-lg-3">
         <div class="product_list_category">CATEGORY</div>
@@ -26,6 +35,8 @@
                 <input type="submit" value="Search"/>
             </form>
         </div>
+        <br/>
+        
       </div>
       
       <!-- /.col-lg-3 -->

@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    
    
-    {% block head_js %}
-    {% endblock head_js %}
 </head>
 <body>
     <!-- Fixed masthead -->
@@ -81,10 +80,18 @@
                 </div>
             </div>
         </footer>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script>
+        document.getElementById("sort-by-price").onchange = function () {
+            this.form.submit()
+    }
+    </script>
+    <!--<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>-->
+    {% block head_js %}
+    {% endblock head_js %}
      
 </body>
 </html>
