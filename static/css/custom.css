@@ -15,6 +15,45 @@ footer{
     letter-spacing:0.2em;
 }
 
+/*Code taken from Code institute learning videos(Resume Project)*/
+.social-links li a i{
+    width: 32px;
+    height:32px;
+    padding:12px 0;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    transition: all,0.35s ease-in-out;
+    -moz-transition: all,0.35s ease-in-out;
+    -webkit-transition: all,0.35s ease-in-out;
+    -o-transition: all,0.35s ease-in-out;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-github {
+    width: 50px;
+    height:50px;
+    padding:35px 0;
+    border-radius: 80%;
+    font-size: 60px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    transition: all,0.35s ease-in-out;
+    -moz-transition: all,0.35s ease-in-out;
+    -webkit-transition: all,0.35s ease-in-out;
+    -o-transition: all,0.35s ease-in-out;
+}
+
+
+
+
+
 .icon-bar {
     background-color: #fff;
 }
