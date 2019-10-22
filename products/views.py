@@ -5,22 +5,25 @@ from django.http import HttpResponseRedirect
 from bookstore.settings import MEDIA_URL
 from reviews.forms import ReviewForm
 from reviews.models import Review
+from django.db.models import CharField, Value as V
+from django.db.models.functions import Concat
 
-# Create your views here.
+# Reference- https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
 def all_products(request):
-    products_list = Product.objects.all()
+    """List of all books in the database with pagination"""
+    products = Product.objects.all().order_by('name')
     # products_list  = Product.objects.get_queryset()
     category = Category.objects.all()
     author = Author.objects.all()
    
-    products = products_list.order_by('name')
+   
     sorting_order =  request.GET.get('sort-by-price')
     
     if request.GET.getlist('sort-by-price'):
         if 'Low-to-High' in request.GET.getlist('sort-by-price'):
-            products  = products_list.order_by('price')
+            products  = products.order_by('price')
         if 'High-to-Low' in request.GET.getlist('sort-by-price'):
-            products  = products_list.order_by('-price')
+            products  = products.order_by('-price')
             
    
     paginator = Paginator(products, 6)
@@ -33,12 +36,16 @@ def all_products(request):
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
         
-    context = {"products":products,"category":category, "author":author, "sorting_order" : sorting_order}
+    context = {"products":products,
+                "category":category, 
+                "author":author, 
+                "sorting_order" : sorting_order}
     
     return render(request,"product_list.html", context)
 
-
+# Reference -https://www.codementor.io/jadianes/get-started-with-django-building-recommendation-review-app-du107yb1a
 def product_detail(request,id):
+    """Specific details of a particular book"""
     product= get_object_or_404(Product, id=id)
     reviews = Review.objects.filter(product_id=id).order_by('pub_date')
     product.views = product.views + 1
@@ -63,6 +70,7 @@ def product_detail(request,id):
     return render(request,'product_detail.html',context)
     
 def show_products_category(request, category_name):
+    """Displays categories for each book"""
     category = Category.objects.all()
     author = Author.objects.all()
     category_select = Category.objects.get(name=category_name)
@@ -85,10 +93,11 @@ def show_products_category(request, category_name):
         "MEDIA_URL": MEDIA_URL, 
     })
     
-# def show_products_author(request, author_firstname,author_lastname):
-#     author = Author.objects.all()
-#     author_select = Author.objects.get(firstname=author_firstname, lastname=author_lastname)
-#     product_pagination = Product.objects.filter(author = author_select).order_by('firstname')
+# def show_products_author(request, author):
+#     # author = Author.objects.all()
+#     author =  Author.objects.annotate(full_name=Concat('first_name', V(' ') ,'last_name'))
+#     # author_select = Author.objects.get(firstname=author_firstname, lastname=author_lastname)
+#     product_pagination = Product.objects.filter(author = author).order_by('firstname')
 #     page = request.GET.get('page', 1)
 #     paginator = Paginator(product_pagination , 3)
 #     try:
@@ -101,8 +110,7 @@ def show_products_category(request, category_name):
 #     return render(request, "product_list.html",
 #     {
 #         "products": products, 
-#         "author_firstname": author_firstname, 
-#         "author_lastname": author_lastname,
+#         "author": author, 
 #         "MEDIA_URL": MEDIA_URL, 
 #     })
     

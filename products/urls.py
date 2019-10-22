@@ -6,6 +6,6 @@ urlpatterns = [
     url(r'^$', all_products, name='products'),
     url(r'^product/(\d+)', product_detail, name='product_detail'),
     url(r'^(?P<category_name>[\w.@+-]+)', show_products_category, name='show_products_category'),
-    # url(r'^(?P<author_firstname,author_lastname>[\w.@+-]+)', show_products_author, name='show_products_author'),
+    # url(r'^(?P<author_firstname>[\w.@+-]+)', show_products_author, name='show_products_author'),
     url(r'^/products/<int:pk>/reviews/', add_review, name='add_review'),
 ]

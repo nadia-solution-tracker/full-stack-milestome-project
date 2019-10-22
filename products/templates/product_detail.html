@@ -24,9 +24,9 @@
                     Out of Stock
                 {% endif %}
                 <div class="row product_detail_buttons">  
-      
-                 <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
-                    {% csrf_token %}
+                 
+                <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
+                {% csrf_token %}
                     <div class="input-group">
                         <span class="input-group-btn">
                             {% if product.instock > 0 %}
@@ -55,16 +55,10 @@
                       </span>
                     </div>
                 </form>
-              
-    
-    </div>
-    <br/>
-               
-            </div>
         </div>
-    </div>  
+        <br/>
+    </div>
 </div>
-
 
 <div class="container" id="reviewform">
     <div class="row">
@@ -96,23 +90,21 @@
     </div>
     <hr>
     {% if reviews %}
-<div>
-    {% for review in reviews %}
-    <div>
-        <img class="image-icon" src="http://icons.iconarchive.com/icons/icons8/ios7/512/Users-User-Male-icon.png" alt="image-icon"/>
-	<h4>
-        	{{ review.user }}
-        </h4>
-        <h6>rated {{ review.rating }} of 5 by {{ review.user }}</h6>
-        {{review.pub_date}}
-        <p>{{ review.comment }}</p>
-    </div>
-    <hr/>
-    {% endfor %}
-</div>
-{% else %}
-<p>No reviews are available.</p>
-{% endif %}
+        <div>
+            {% for review in reviews %}
+                <div>
+                    <img class="image-icon" src="http://icons.iconarchive.com/icons/icons8/ios7/512/Users-User-Male-icon.png" alt="image-icon"/>
+    	            <h4>{{ review.user }}</h4>
+                    <h6>rated {{ review.rating }} of 5 by {{ review.user }}</h6>
+                    {{review.pub_date}}
+                    <p>{{ review.comment }}</p>
+                </div>
+            <hr/>
+            {% endfor %}
+        </div>
+    {% else %}
+    <p>No reviews are available.</p>
+    {% endif %}
 </div>
 
 {% endblock %}

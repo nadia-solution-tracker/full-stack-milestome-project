@@ -1,50 +1,42 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 <div class="content">
-
     <div class="row">
-
       <div class="col-lg-3">
-
         <div class="product_list_category">CATEGORY</div>
-        <div class="list-group">
-          {% for cat in category %}
-            <a href="{% url 'show_products_category' cat.name %}" class="list-group-item">{{cat.name}}</a>
+          <div class="list-group">
+            {% for cat in category %}
+              <a href="{% url 'show_products_category' cat.name %}" class="list-group-item">{{cat.name}}</a>
             {% endfor %}
-         
-        </div><br/>
-        <div class="product_list_author">AUTHOR</div>
-       <div class="list-group">
-          {% for aut in author %}
-            <a href="" class="list-group-item">{{aut.firstname}} {{aut.lastname}}</a>
-          {% endfor %}
-          
-        </div>
-        <div class="display">
+          </div><br/>
+          <div class="product_list_author">AUTHOR</div>
+          <div class="list-group">
+            {% for aut in author %}
+              <a href="" class="list-group-item">{{aut.firstname}} {{aut.lastname}}</a>
+            {% endfor %}
+          </div>
+          <div class="display">
             <form action="{% url 'search' %}" method="GET">
                 <input type="text" name='q' placeholder="Search"/>
                 <input type="submit" value="Search"/>
             </form>
-        </div>
+          </div>
       </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           </ol>
           <div class="carousel-inner" role="listbox">
-            
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="https://i0.wp.com/pointwhiskeypublishing.com/wp-content/uploads/2017/12/point-whiskey-books-banner.jpg?ssl=1" alt="Second slide">
+              <img class="d-block img-fluid" src="https://i0.wp.com/pointwhiskeypublishing.com/wp-content/uploads/2017/12/point-whiskey-books-banner.jpg?ssl=1" alt="Second slide"/>
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="https://blog.edgenuity.com/wp-content/uploads/2018/04/WLC-top-books-may-2018-banner.jpg">
+              <img class="d-block img-fluid" src="https://blog.edgenuity.com/wp-content/uploads/2018/04/WLC-top-books-may-2018-banner.jpg"/>
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -56,45 +48,33 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-
-
-<h1>Our Latest Collection</h1>
-        <div class="row">
-
-         
-
-
-         
-
-           {% for product in top_3_product %}
-          <div class="col-lg-4 col-md-6 mb-4">
-           
-                         <div class="card h-100">
-                <a href="{% url 'product_detail' product.id %}">><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="{% url 'product_detail' product.id %}">{{product.name}}</a>
-                  </h4>
-                  <h5>${{product.price}} CAD</h5>
-                 
-                </div>
-                <div class="card-footer">
-                              <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
-                                      {% csrf_token %}
-                                      <div class="input-group">
-                                          <span class="input-group-btn">
-                                              <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
-                                          </span>
-                                      </div>
-                                  </form>
-  
+        <h1>Our Latest Collection</h1>
+          <div class="row">
+            {% for product in top_3_product %}
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                  <a href="{% url 'product_detail' product.id %}">><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a href="{% url 'product_detail' product.id %}">{{product.name}}</a>
+                    </h4>
+                    <h5>${{product.price}} CAD</h5>
+                  </div>
+                  <div class="card-footer">
+                    <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
+                      {% csrf_token %}
+                        <div class="input-group">
+                          <span class="input-group-btn">
+                            <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                          </span>
+                        </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </div>
-      {% endfor %}
-        </div>
-        <!-- /.row -->
-
+            {% endfor %}
+          </div>
+          <!-- /.row -->
       </div>
       <!-- /.col-lg-9 -->
 

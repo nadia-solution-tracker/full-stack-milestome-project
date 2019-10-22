@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def search_products(request):
+    """Search for a particular book ,author or specific keywords"""
     product_list = Product.objects.all()
     category = Category.objects.all()
     author = Author.objects.all()

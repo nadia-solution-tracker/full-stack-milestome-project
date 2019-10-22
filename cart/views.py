@@ -44,6 +44,7 @@ def adjust_cart(request, id):
     return redirect(reverse('view_cart'))
     
 def remove_from_cart(request, id):
+    """Remove items completely from the cart"""
     product = get_object_or_404(Product, pk=id)
     cart = request.session.get('cart', {})
     updated_stock = product.instock
