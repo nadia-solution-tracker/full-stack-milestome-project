@@ -16,7 +16,7 @@ def all_products(request):
     category = Category.objects.all()
     author = Author.objects.all()
    
-   
+    #Reference https://tutorial.djangogirls.org/en/django_orm/
     sorting_order =  request.GET.get('sort-by-price')
     
     if request.GET.getlist('sort-by-price'):
