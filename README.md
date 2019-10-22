@@ -9,7 +9,7 @@
 - The Online book store also allows users to search and purchase a book online based on title, author and other keywords. 
 - The selected books are displayed in a tabular format in a cart and the user can order their books online through credit card payment. Using this Website the user can purchase a book online instead of going out to a book store and wasting time.
 
-![IMAGE](static/images/homepagesnapshot.jpg)
+![IMAGE](static/images/HomePageSnapshot)
 
 ## UX
 ### Insights of the project
@@ -248,3 +248,142 @@ Year:  2022
 - Verified error message on the form when the mandatory fields were left blank.
 - Verified for invalid user name and password
 - Login page tested for username:helen and password:helen_123
+
+** Site administrator Dashboard**
+- Tested that valid entries can be made to each of thye models in the database created locally
+
+![IMAGE](static/images/DashBoard.jpg)
+
+## Deployment
+
+- Project is built on AWS Cloud 9 (https://aws.amazon.com/cloud9/)
+
+#### Running code locally
+
+- django-admin startproject bookstore .
+ - Start new project with name bookstore in root dir
+- django-admin startapp home
+ - Start app in django project. the app have its own views. it is component to project.
+- python3 manage.py runserver $IP:$C9_PORT
+  - To start server. This command can be added to .bash_aliases file alias run="python3 ~/workspace/manage.py runserver $IP:$C9_PORT"
+- Eventually "run" command can be used to run the project locally
+- All apps created need to be registed in INSTALLED_APPS in the settings fle of the start project
+- When Modals are created the following commands need to be executed to create the modals through migrations
+ -`~/workspace $ python3 manage.py makemigrations`
+  -`~/workspace $ python3 manage.py migrate`
+- To create a dmin dashboard create a superuser using following command
+  -`~/workspace $ •	python3 manage.py createsuperuser`
+  
+  
+#### Git deployment
+The files have been edited in this development instance. When ready, the changes were "deployed" to the staging instance. After user acceptance and testing, deploy again, this time to production. I used git and GitHub pages for deployment.
+The following steps are followed to deploy the pages:
+1.	Initialised the local directory in my project as a git repository used the cloud9 terminal to perform this step `$git init`
+2.	Added the files in the local repository created. And staged them for commit `$git add .`
+3.	Commited the files that I have staged in the local repository. 
+`$git commit –m ”Initial commit”` This step is perfomed for any changes I have done to sections in webpages and stylesheets as well as the images and audios folder.
+4.	Created a new repository in Github and in the terminal, added the URL for the remote repository where your local repository will be pushed.
+5.	On major changes I have pushed the changes in the local repository to GitHub. `$git push origin master`
+Github Link: <link>(https://github.com/nadia-solution-tracker/full-stack-milestome-project)
+
+#### Heroku deployment Steps
+1.	Create our Heroku app on <link>(https://www.heroku.com/)
+2. Add postgres database as compare to sqlite by clicking Resources->Addons ->Heroku Postgres
+3. Add Config Vars : Secret_key and Database Url
+
+![IMAGE](static/images/config_vars.jpg)
+
+4.Changes to settings.py file to incorporate 
+
+```pythoncode
+if "DATABASE_URL" in os.environ:
+  DATABASES = {
+     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    print("Database URL not found. Using SQLite instead")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+
+and
+
+ `~/workspace $ sudo pip3 install whitenoise`
+
+```pythoncode
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+```
+
+Run following commands again
+ -`~/workspace $ python3 manage.py makemigrations`
+  -`~/workspace $ python3 manage.py migrate`
+To create a dmin dashboard create a superuser using following command
+  -`~/workspace $ •	python3 manage.py createsuperuser`
+  
+ 5.Add a collection point in setting.py
+ ```pythoncode
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+6.Create a **requirements.txt** file, which will install the dependencies for our project and tell Heroku that we're using Python.<br/>
+`~/workspace (master) $ sudo pip3 freeze --local > requirements.txt`<br/>
+`~/workspace (master) $ git add requirements.txt`<br/>
+`~/workspace (master) $ git commit -m "creating requirements file "`<br/>
+`~/workspace (master) $ git push origin master`<br/>
+
+7.Create a **Procfile**.<br/>
+ ```pythoncode
+web: gunicorn bookstore.wsgi:application
+```
+`~/workspace (master) $ git add Procfile`<br/>
+`~/workspace (master) $ git commit -m "Add Procfile"`<br/>
+
+8.`~/workspace (master) $ pip install gunicorn<br/>
+9.Add heroku link to allowed hosts
+ ```pythoncode
+ALLOWED_HOSTS = [‘online-book-store-ecommerce.herokuapp.com’]
+```
+10.Commit and push
+11.Do automatic deploy from git by connect heroku to git master
+
+
+
+## Credits
+
+Content
+- Book Information taken from - https://www.chapters.indigo.ca/en-ca/ and google images
+
+Code Logic
+-	For apps Accounts,Cart ,Purchases - Code institute Videos and Miniproject ecommerce
+- For pagination Code – https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
+- For Ordering using select
+https://tutorial.djangogirls.org/en/django_orm/
+- For Reviews
+https://www.codementor.io/jadianes/get-started-with-django-building-recommendation-review-app-du107yb1a
+
+Also refered Google and forums for solutions to errors
+
+- Images and Recipes
+https://www.chapters.indigo.ca/en-ca/ and google images
+
+Bugs and Solutions
+- Ordering in drop down required writing javascript code for some reason onchange and submit was given an error finally used jquery to solve the problem
+```pythoncode
+ <script>
+    $(function() {
+      $('#sort-by-price').change(function() {
+            $('#sorting-form').submit();
+      });
+    });
+    </script>
+```
+## Acknowledgements
+I would extend my sincere thanks to my mentor for giving me ideas and reviewing my project and making it more efficient.Also I would thank Slack team and the Tutoring feature of Code Institute as well as all the Video training from  the Full stack module
+
+
+
