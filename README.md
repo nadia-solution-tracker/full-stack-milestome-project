@@ -41,7 +41,6 @@ Sorting feature can also advance her search if she wishes to browse based on pri
 
 **"John does not find the book instore"**
 - As a user ,he can access this website to check if an item is in stock or not, and proceed to buying .
--
 
 - Logout feature is also provided.
 
@@ -122,7 +121,6 @@ Accounts
 - This comment is than added to the list of customer reviews
 - If the user has not logged in he/she will be shown a message to loggin to leave a comment however he/she will be able to view other customer reviews
 
-
 **Cart**
 - Adding a book to the cart will display a clickable cart option in the menu displaying the total items in the cart.
 - The cart can be viewed by clicking the cart link on the menu bar.
@@ -137,3 +135,116 @@ Accounts
 - Submitting an order finally saves the order for the customer for processing (not implemented) as well as updates the quantity in stock for the product.
 
 *Pages* : checkout.html
+
+## Technologies Used
+** Django**
+ -  Python Web Framework-Used to build the web application
+ Dependencies used:
+  - django-forms-bootstrap : bootstrap filter for Django forms
+   - dj-database-url: allows you to utilize the DATABASE_URL environment variable to configure your Django application.
+  - whitenoise: allows your web app to serve its own static files
+   -  Gunicorn: Python WSGI server for UNIX
+   -  Pillow : support for most common image formats.
+   -  psycopg2 PostgreSQL database adapter for Python
+   
+  **Installs made to the project**
+- `~/workspace $ sudo pip3 install django==1.11`
+- `~/workspace $ sudo pip3 install django-forms-bootstrap`
+- `~/workspace $ sudo pip3 install Pillow`
+- `~/workspace $ sudo pip3 install stripe`
+- `~/workspace $ sudo pip3 install dj-database-url`
+- `~/workspace $ sudo pip3 install psyscopg2-binary`
+- `~/workspace $ sudo pip3 install Flask`
+- `~/workspace $ sudo pip3 install whitenoise`
+   
+** Stripe **
+- Ecommerce payments functionality ,using Stripes test functionality rather than actual live payments.
+
+**Heroku** <link>(https://www.heroku.com/)
+- Deploy and scale Python apps
+
+**HTML5** : to create structure of webpage.<br/>
+**CSS3**: to style webpage, I used external stylesheet, file located in static/css/custom.css .<br/>
+**Google Fonts**: for additional font-family options https://fonts.google.com/.<br/>
+**Font Awesome**: for social media icons and envelope icon https://fontawesome.com/.<br/>
+** Bootstrap 4.3**-developing responsive HTML pages
+
+**JQuery**
+- This project uses Jquery to simplify DOM manipulation and provide better UX.
+
+**Backend Database**
+- For local development used sqlite3
+- On Heroku, PostgreSQL was used
+
+**Version Control**
+- Git and GitHub
+
+** Other Services used**
+- Amazon S3 Bucket
+- Travis CI : for continuous Integration testing
+
+## Testing
+- The web application has been tested to make it responsive this is tested in Google Chrome Developer tools responsive mode on Galaxy S5, Pixel 2, Pixel 2XL,iPhone 5/SE, iPhone 6/7/8, iPhone Plus 6/7/8, iPhone X, iPad, iPad Pro.
+- Web application is also been viewed on different browsers like Google Chrome,Firefox and Internet Edge
+- Tested button and links directed to desired page.
+
+**Testing scenarios**
+**Home(base.html and home_page.html)**–"Test PASS"
+- The home page is responsive and conforms to the browser size.
+- The navigation bar collapses to a burger icon when viewed on medium and small devices. On hovering on each of the link the color it highlights the active link
+- Tested every link on the navigation bar and verified that I was directed to the appropriate sections.
+- Filtering criteria on the left side when clicked directs to the list of books with selection criteria results displayed
+- Search functionality works for any keywords keyed in the text box
+- Clicking any of the top 3 popular viewed books opens the detailed information of the book.
+- Clicking the add to cart button in the book cards adds the book to the cart
+
+**Footer- Social media** "Test PASS"
+
+- Social media link - Clicked the social media icon i.e. github and confirmed it directs you to the desired site.
+- On small devices the social media and copyright are centered on the webpage.
+- Go to top link in the footer directs the user to the tp of the page
+
+**Browse All( product_list.html)** "Test PASS"
+- Tested that pagination works and displays 6 books at a time from the list of collection of books.
+- The navigation links on the pagination also works as desired
+- - Filtering criteria on the left side when clicked directs to the list of books with selection criteria results displayed
+- Search functionality works for any keywords keyed in the text box
+- Sorting functionality based on prices works as desired and displays books based on sorting criteria low to high price and high to low price
+- Clicking any of the book cards on a page opens the detailed information of the book.
+- Clicking the add to cart button in the book cards adds the book to the cart
+
+**Product detail(product_detail.html)** "Test PASS"
+- Tested that the countof views gets incremented when any user browses a book detail
+- The number of reviews for that particular book is displayed
+- Tested that Add to Cart and View Cart buttons do the desired actions
+- Tested that only after logging in a user can write a review about a book.
+- Back to Previous Page directs the user to the Book Collection 
+
+**Cart(cart.html)**"Test PASS"
+- Tested that a quantity of a book can be updated this reflects a newprice total.
+- Remove on clicked removes the item from the cart.
+- Checkout will direct to the checkout page provided the users has successfully logged in ,if no the user willbe directed to the Login Page
+
+**Checkout(checkout.html)**"Test PASS"
+- Confirms an order placed by the user.
+- Tested that after succesfully filling credit card details the order information is stored in Orders for that user.
+- Test data used fro Credit Card is 4242424242424242
+Security Code (ccv) 111
+Month : 1
+Year:  2022
+- Tested that after a order has been confirmed the instock quantity gets reduced ,this can be viewed by going to product details page of the book
+
+- Another feature tested here is if the total number of books in stock is equal to 0 the Add to Cart button displays "Out of Stock" 
+
+**Register(register.html)** –"Test PASS"
+-  Tested the link to open Register page
+- Verified error message on the form when the mandatory fields were left blank.
+- Verified error message on the form when the mandatory fields were left blank. This also included the proper email format (xxx@xx.xxx) on testing.
+- Verified if same username has been supplied by displaying a message username already exist
+- Verified that both passwords need to match
+
+**Login(login.html) **–"Test PASS"
+- Tested the link to open Login page
+- Verified error message on the form when the mandatory fields were left blank.
+- Verified for invalid user name and password
+- Login page tested for username:helen and password:helen_123
