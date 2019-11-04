@@ -3,7 +3,15 @@
 **Table of Contents**
 
 1. [ Overview of the project ](#overview)
-
+2. [ UX -Insights of the project ](#insights)
+3. [ User Stories ](#userstories)
+4. [ Design Process ](#design)
+5. [ Features](#features)
+6. [ Technologies Used ](#technologies)
+7. [ Testing ](#testing)
+8. [ Deployment ](#deployment)
+9. [ Credits ](#credits)
+10. [ Acknowledgements ](#acknowledgement)
 
 <a name="overview"></a>
 ### Overview of the project
@@ -13,6 +21,7 @@
 
 ![IMAGE](static/images/HomePageSnapshot.jpg)
 
+<a name="insights"></a>
 ## UX
 ### Insights of the project
 - Customer can purchase books online. 
@@ -26,6 +35,8 @@
 - Pagination feature allows users concentrate on a particular amount of content
 - The books are divided into many categories based on subject like Fiction, Comics, Gospel etc.
 
+
+<a name="userstories"></a>
 #### User Stories
 **"Rochelle loves books and wants to buy one of her favourites"**
 - As a user she can browse through the list of books ,or browse through book based on Authors ,Categories or search keywords. 
@@ -46,6 +57,7 @@ Sorting feature can also advance her search if she wishes to browse based on pri
 
 - Logout feature is also provided.
 
+<a name="design"></a>
 #### Design Process
 
 [Schema diagram](https://www.dropbox.com/s/ii6ipaeryhgdlo1/Relational%20schema.jpg?dl=0)<br/>
@@ -54,6 +66,8 @@ While working on the application new features and changes were made on the desig
 [Wireframes for IPhone](https://www.dropbox.com/s/6m8o5ha3vz1swoh/Wireframe%20for%20Iphone.pdf?dl=0)<br/>
 [Wireframes for IPad](https://www.dropbox.com/s/8a3o977hn0k2nug/Wireframe%20for%20Ipad.pdf?dl=0)<br/>
 
+
+<a name="features"></a>
 ## Features
 
 #### Existing Features
@@ -136,6 +150,7 @@ Accounts
 
 *Pages* : checkout.html
 
+<a name="technologies"></a>
 ## Technologies Used
 ** Django**
  -  Python Web Framework-Used to build the web application
@@ -183,6 +198,7 @@ Accounts
 - Amazon S3 Bucket
 - Travis CI : for continuous Integration testing
 
+<a name="testing"></a>
 ## Testing
 - The web application has been tested to make it responsive this is tested in Google Chrome Developer tools responsive mode on Galaxy S5, Pixel 2, Pixel 2XL,iPhone 5/SE, iPhone 6/7/8, iPhone Plus 6/7/8, iPhone X, iPad, iPad Pro.
 - Web application is also been viewed on different browsers like Google Chrome,Firefox and Internet Edge
@@ -254,6 +270,7 @@ Year:  2022
 
 ![IMAGE](static/images/DashBoard.jpg)
 
+<a name="deployment"></a>
 ## Deployment
 
 - Project is built on AWS Cloud 9 (https://aws.amazon.com/cloud9/)
@@ -352,7 +369,7 @@ ALLOWED_HOSTS = [‘online-book-store-ecommerce.herokuapp.com’]
 11.Do automatic deploy from git by connect heroku to git master
 
 
-
+<a name="credits"></a>
 ## Credits
 
 Content
@@ -382,6 +399,8 @@ Bugs and Solutions
     });
     </script>
 ```
+
+<a name="acknowledgement"></a>
 ## Acknowledgements
 I would extend my sincere thanks to my mentor for giving me ideas and reviewing my project and making it more efficient.Also I would thank Slack team and the Tutoring feature of Code Institute as well as all the Video training from  the Full stack module
 
