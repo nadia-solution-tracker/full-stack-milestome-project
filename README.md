@@ -152,7 +152,7 @@ Accounts
 
 <a name="technologies"></a>
 ## Technologies Used
-** Django**
+**Django**
  -  Python Web Framework-Used to build the web application
  Dependencies used:
   - django-forms-bootstrap : bootstrap filter for Django forms
@@ -172,7 +172,7 @@ Accounts
 - `~/workspace $ sudo pip3 install Flask`
 - `~/workspace $ sudo pip3 install whitenoise`
    
-** Stripe **
+**Stripe**
 - Ecommerce payments functionality ,using Stripes test functionality rather than actual live payments.
 
 **Heroku** <link>(https://www.heroku.com/)
@@ -259,13 +259,13 @@ Year:  2022
 - Verified if same username has been supplied by displaying a message username already exist
 - Verified that both passwords need to match
 
-**Login(login.html) **–"Test PASS"
+**Login(login.html)**–"Test PASS"
 - Tested the link to open Login page
 - Verified error message on the form when the mandatory fields were left blank.
 - Verified for invalid user name and password
 - Login page tested for username:helen and password:helen_123
 
-** Site administrator Dashboard**
+**Site administrator Dashboard**
 - Tested that valid entries can be made to each of thye models in the database created locally
 
 ![IMAGE](static/images/DashBoard.jpg)
