@@ -1,11 +1,11 @@
-### Online Book Store Ecommerce Website(https://online-book-store-ecommerce.herokuapp.com/)
+# [Online Book Store Ecommerce Website](https://online-book-store-ecommerce.herokuapp.com/)
 
 **Table of Contents**
 
-[TOCM] 
+1. [ Overview of the project ](#overview)
 
-[TOC]
 
+<a name="overview"></a>
 ### Overview of the project
 - The main objective of this Ecommerce Website is to manage the details of Books, Stock, Customer, Order and Payment.
 - The Online book store also allows users to search and purchase a book online based on title, author and other keywords. 
@@ -73,7 +73,6 @@ Accounts
 **Home**- serves as an initial landing page for all users. Users are able to access the following :
 - A static clickable navigation menu with items like Home, Browse All , Login, Register
 - Have a snick peek at the top 3 most popular books as card.
-- Clicking an book image in the card opens up the image to have a better look of the book cover
 - Add to cart button will add the book to the cart.
 - Clicking the book title or the book cover image redirects to book detail page to see more information about the book
 - List of existing author and Categories is displayed on the left side of the home Page to advance search
@@ -102,7 +101,6 @@ Accounts
 - When this page is first time loaded a list of books  are displayed in form of a card  which the user can browse.
 - Pagination feature is incorporated so that users do not get lost and can concentrate on a particular amount of content, the page display 6 books at each time. The user can view the list of next 6 books by clicking on the pagination links provided at the bottom of the page.
 - Clicking a book card opens up detail information about the book.
-- Clicking any card images of the recipe book opens up the image to have a better view of the book cover
 
 **Searched Books**– this page displays list of books based on filtered criteria
 - Provides users with book cards of books based on search criteria Results for: Fiction

@@ -22,10 +22,10 @@
             <a href="{% url 'show_products_category' cat.name %}" class="list-group-item">{{cat.name}}</a>
           {% endfor %}
         </div><br/>
-        <div class="product_list_author">AUTHOR</div>
+        <div class="product_list_author">TOP 10 BEST SELLERS</div>
         <div class="list-group">
-          {% for aut in author %}
-            <a href="" class="list-group-item">{{aut.firstname}} {{aut.lastname}}</a>
+          {% for bestbooks in best_seller_books %}
+            <a href="{% url 'product_detail' bestbooks.id %}" class="list-group-item">{{bestbooks.name}}</a>
           {% endfor %}
         </div>
         <div class="display">

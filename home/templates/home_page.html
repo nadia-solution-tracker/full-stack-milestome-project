@@ -10,10 +10,10 @@
               <a href="{% url 'show_products_category' cat.name %}" class="list-group-item">{{cat.name}}</a>
             {% endfor %}
           </div><br/>
-          <div class="product_list_author">AUTHOR</div>
+          <div class="product_list_author">TOP 10 BEST SELLERS</div>
           <div class="list-group">
-            {% for aut in author %}
-              <a href="" class="list-group-item">{{aut.firstname}} {{aut.lastname}}</a>
+            {% for bestbooks in best_seller_books %}
+              <a href="{% url 'product_detail' bestbooks.id %}" class="list-group-item">{{bestbooks.name}}</a>
             {% endfor %}
           </div>
           <div class="display">
@@ -48,12 +48,12 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-        <h1>Our Latest Collection</h1>
+        <h1>Most Viewed Collection</h1>
           <div class="row">
             {% for product in top_3_product %}
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                  <a href="{% url 'product_detail' product.id %}">><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
+                  <a href="{% url 'product_detail' product.id %}"><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
                   <div class="card-body">
                     <h4 class="card-title">
                       <a href="{% url 'product_detail' product.id %}">{{product.name}}</a>

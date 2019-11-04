@@ -10,7 +10,7 @@ def search_products(request):
     """Search for a particular book ,author or specific keywords"""
     product_list = Product.objects.all()
     category = Category.objects.all()
-    author = Author.objects.all()
+    best_seller_books = Product.objects.raw("select * from products_product where instock<=1 order by instock limit 10")
     query = request.GET.get('q')
     if query:
      
@@ -31,7 +31,7 @@ def search_products(request):
     context = {
         'products': products,
         'category':category,
-        'author': author
+        'best_seller_books': best_seller_books
     }
 
  

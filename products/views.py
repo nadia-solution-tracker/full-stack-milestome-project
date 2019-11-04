@@ -14,7 +14,8 @@ def all_products(request):
     products = Product.objects.all().order_by('name')
     # products_list  = Product.objects.get_queryset()
     category = Category.objects.all()
-    author = Author.objects.all()
+    best_seller_books = Product.objects.raw("select * from products_product where instock<=1 order by instock limit 10")
+ 
    
     #Reference https://tutorial.djangogirls.org/en/django_orm/
     sorting_order =  request.GET.get('sort-by-price')
@@ -38,7 +39,7 @@ def all_products(request):
         
     context = {"products":products,
                 "category":category, 
-                "author":author, 
+                "best_seller_books":best_seller_books, 
                 "sorting_order" : sorting_order}
     
     return render(request,"product_list.html", context)
@@ -72,7 +73,7 @@ def product_detail(request,id):
 def show_products_category(request, category_name):
     """Displays categories for each book"""
     category = Category.objects.all()
-    author = Author.objects.all()
+    best_seller_books = Product.objects.raw("select * from products_product where instock<=1 order by instock limit 10")
     category_select = Category.objects.get(name=category_name)
     product_pagination = Product.objects.filter(category = category_select).order_by('name')
     page = request.GET.get('page', 1)
@@ -89,28 +90,8 @@ def show_products_category(request, category_name):
         "products": products, 
         "category_name": category_name, 
         "category" : category,
-        "author" : author,
+        "best_seller_books" : best_seller_books,
         "MEDIA_URL": MEDIA_URL, 
     })
     
-# def show_products_author(request, author):
-#     # author = Author.objects.all()
-#     author =  Author.objects.annotate(full_name=Concat('first_name', V(' ') ,'last_name'))
-#     # author_select = Author.objects.get(firstname=author_firstname, lastname=author_lastname)
-#     product_pagination = Product.objects.filter(author = author).order_by('firstname')
-#     page = request.GET.get('page', 1)
-#     paginator = Paginator(product_pagination , 3)
-#     try:
-#         products= paginator.page(page)
-#     except PageNotAnInteger:
-#         products = paginator.page(1)
-#     except EmptyPage:
-#         products = paginator.page(paginator.num_pages)
-        
-#     return render(request, "product_list.html",
-#     {
-#         "products": products, 
-#         "author": author, 
-#         "MEDIA_URL": MEDIA_URL, 
-#     })
-    
+
