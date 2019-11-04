@@ -19,7 +19,7 @@
 - The Online book store also allows users to search and purchase a book online based on title, author and other keywords. 
 - The selected books are displayed in a tabular format in a cart and the user can order their books online through credit card payment. Using this Website the user can purchase a book online instead of going out to a book store and wasting time.
 
-![IMAGE](static/images/HomePageSnapshot.jpg)
+![IMAGE](static/images/HomePage.jpg)
 
 <a name="insights"></a>
 ## UX
