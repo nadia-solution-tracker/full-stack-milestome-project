@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+<div class="content">
+    <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header"><legend>Edit Profile</legend></div>
+                        <div class="card-body">
+                            <form method="post" action="{% url 'edit_profile' %}">
+                                <fieldset class="form-group">
+                                    {% csrf_token %}
+                                    {{  form | as_bootstrap }}
+                                    <button type="submit" class="btn btn-success text-center">Edit Profile</button>
+                                  
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}

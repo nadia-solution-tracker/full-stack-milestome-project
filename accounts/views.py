@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, UserEditForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 
@@ -74,3 +74,16 @@ def register(request):
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
 
+@login_required
+def edit_profile(request):
+    """A view that edits user profile"""
+    if request.method == 'POST':
+        form = UserEditForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your profile was successfully updated!')
+            return redirect('profile')
+    else:
+        form = UserEditForm(instance=request.user)
+    return render(request, 'edit_profile.html', {'form': form})

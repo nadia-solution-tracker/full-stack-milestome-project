@@ -1,5 +1,32 @@
 {% extends "base.html" %}
+{% load bootstrap_tags %}
 {% block content %}
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+<div class="content">
+    <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header"><legend>User Information</legend></div>
+                        <div class="card-body">
+                            {% if user.is_authenticated %}
+                                <img class="image-icon-profile" src="http://icons.iconarchive.com/icons/icons8/ios7/512/Users-User-Male-icon.png" alt="image-icon"/>
+                                <p>User: {{ user.username }} logged in.</p>
+                            {% endif %}
+                            {% if user.email %}
+							   <p> Your email: {{ user.email }}</p>
+							{% else %}
+								<p>Your email:</p> You did not provide your email address.
+							{% endif %} 
+							<p>Account Created on {{ user.date_joined }}</p>
+							<a href="{% url 'edit_profile' %}">
+            					<i class="fa fa-user-edit"></i>
+            					<span class="text-success">Edit your profile</span>
+				            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
 {% endblock %}
+<

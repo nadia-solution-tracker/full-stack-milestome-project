@@ -167,6 +167,12 @@ button > i{
 }
 
 
+.image-icon-profile{
+   height: 120px;
+   width: 140px;
+   float: left;
+}
+
 /* cart styles */
 .cart-thumbnail-image{
     background-size: contain;
