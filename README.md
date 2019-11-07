@@ -382,6 +382,9 @@ Code Logic
 https://tutorial.djangogirls.org/en/django_orm/
 - For Reviews
 https://www.codementor.io/jadianes/get-started-with-django-building-recommendation-review-app-du107yb1a
+- For Edit Profile Information
+https://stackoverflow.com/questions/47188250/avoid-user-pk-in-django-user-edit-form
+
 
 Also refered Google and forums for solutions to errors
 

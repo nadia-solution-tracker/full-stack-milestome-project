@@ -44,14 +44,12 @@ footer{
     line-height: 7px;
     text-align: center;
     color: #fafafa;
+    margin-left: 90px;
     transition: all,0.35s ease-in-out;
     -moz-transition: all,0.35s ease-in-out;
     -webkit-transition: all,0.35s ease-in-out;
     -o-transition: all,0.35s ease-in-out;
 }
-
-
-
 
 
 .icon-bar {
@@ -63,7 +61,7 @@ footer{
 }
 
 /* Nav bar */
-.navbar-dark .navbar-brand{
+.navbar-dark .navbar-brand,.title{
     font-family: 'Mountains of Christmas', cursive !important;
     font-size: 30px;
     font-weight: bold;
@@ -82,7 +80,7 @@ footer{
 
 /*login and register page*/
 legend{
-     text-align: center;
+    text-align: center;
     font-family: 'Mountains of Christmas', cursive ;
     font-weight: bold;
     font-size:40px;
@@ -92,7 +90,7 @@ legend{
     padding-top: 20px;
 }
 .right{
-   text-align: center;
+    text-align: center;
     font-family: 'Mountains of Christmas', cursive ;
     font-weight: bold;
 }
@@ -117,9 +115,9 @@ legend{
     padding: 15px;
 }
 .card-title{
-      font-family: 'Mountains of Christmas', cursive;
-      font-size: 20px;
-      font-weight: bold;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 20px;
+    font-weight: bold;
       
 }
 .one-line {
@@ -157,20 +155,20 @@ legend{
 }
 
 button > i{
-  padding-right:10px;
+    padding-right:10px;
 }
 
 .image-icon{
-   height: 60px;
-   width: 80px;
-   float: left;
+    height: 60px;
+    width: 80px;
+    float: left;
 }
 
 
 .image-icon-profile{
-   height: 120px;
-   width: 140px;
-   float: left;
+    height: 120px;
+    width: 140px;
+    float: left;
 }
 
 /* cart styles */
@@ -221,4 +219,61 @@ button > i{
 
 .pagination-action:hover, .pagination-previous, .pagination-next {
     color: #3354AA;  
+}
+
+
+/* Media queries */
+/*Google Pixel XL */
+@media screen and (device-width: 411px) and (device-height: 823px),
+    (min-device-width: 320px) and (max-device-width: 480px),
+{
+    .store_product_image,
+    .store_product_title,
+    .store_product_price{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 70%;
+    }  
+    .btnAddToCart{
+         margin-left:80px;
+    }
+}
+
+@media screen and (min-width: 992px) 
+{
+    .store_product_image{
+        width:213px;
+        height:300px;
+        padding:20px;
+     }
+    
+}
+
+ @media screen and (min-width: 772px) 
+{
+    .store_product_image,
+    .store_product_title,
+    .store_product_price{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+     }
+    .btnAddToCart{
+        margin-left:80px;
+    }
+}
+
+@media screen and (min-width: 344px) 
+{
+     .store_product_image,
+     .store_product_title,
+     .store_product_price{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 90%;
+     }
+  
 }

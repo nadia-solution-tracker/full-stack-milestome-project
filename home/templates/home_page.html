@@ -18,8 +18,8 @@
           </div>
           <div class="display">
             <form action="{% url 'search' %}" method="GET">
-                <input type="text" name='q' placeholder="Search"/>
-                <input type="submit" value="Search"/>
+                <input type="text" name='q' placeholder="Search by any keyword" size="20"/><br/><br/>
+                <button class="btn btn-success" type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
           </div>
       </div>
@@ -48,7 +48,7 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-        <h1>Most Viewed Collection</h1>
+        <h1 class="title">Most Viewed Collection</h1>
           <div class="row">
             {% for product in top_3_product %}
               <div class="col-lg-4 col-md-6 mb-4">
@@ -56,17 +56,15 @@
                   <a href="{% url 'product_detail' product.id %}"><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
                   <div class="card-body">
                     <h4 class="card-title">
-                      <a href="{% url 'product_detail' product.id %}">{{product.name}}</a>
+                      <a class="store_product_title" href="{% url 'product_detail' product.id %}">{{product.name}}</a>
                     </h4>
-                    <h5>${{product.price}} CAD</h5>
+                    <h5 class="store_product_price">${{product.price}} CAD</h5>
                   </div>
                   <div class="card-footer">
                     <form method="post" action="{% url 'add_to_cart' product.id %}" class="store_add_to_cart">
                       {% csrf_token %}
-                        <div class="input-group">
-                          <span class="input-group-btn">
+                        <div>
                             <button class="btn btn-success btnAddToCart" name="quantity" value="1" type="submit"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
-                          </span>
                         </div>
                     </form>
                   </div>
