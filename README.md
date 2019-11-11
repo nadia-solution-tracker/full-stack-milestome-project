@@ -15,9 +15,10 @@
 
 <a name="overview"></a>
 ### Overview of the project
-- The main objective of this Ecommerce Website is to manage the details of Books, Stock, Customer, Order and Payment.
+- The main objective of this Ecommerce Website is to manage the details of Books, Stock,User Sessions and Profile, Order and Payment.
 - The Online book store also allows users to search and purchase a book online based on title, author and other keywords. 
-- The selected books are displayed in a tabular format in a cart and the user can order their books online through credit card payment. Using this Website the user can purchase a book online instead of going out to a book store and wasting time.
+- The selected books are displayed in a tabular format in a cart and the user can order their books online through credit card payment. 
+- Using this Website the user can purchase a book online instead of going out to a book store and wasting time.
 
 ![IMAGE](static/images/HomePage.jpg)
 
@@ -28,7 +29,9 @@
 - Through this web browser the customers can search for a book by its title or author, or specific keywords.
 - Sorting feature based on price both ascending and descending is also provided to ease search of a product
 - Allows users to see specific details about a book like book title, price, author name, description, instock and total views. 
+- Books currently instock and total views are also displayed to help users to search efficiently.These fields update buy a book or views the product details respectively.
 - Using Authentication mechanism a user can login using his account details or new customers can set up an account very quickly
+- Users can also edit their profile information after succesfully logging in.
 - Books can be added to the shopping cart and finally purchase using credit card transaction
 - Users have to register to persist their shopping cart between sessions
 - The user can also write reviews about a book by giving ratings on a score of five. 
@@ -54,6 +57,11 @@ Sorting feature can also advance her search if she wishes to browse based on pri
 
 **"John does not find the book instore"**
 - As a user ,he can access this website to check if an item is in stock or not, and proceed to buying .
+
+
+**"Thomas wants to edit his profile"**
+- As a user ,he can edit his profile information only after he has succesfully logged in.This allows for changing his email address and his 
+username
 
 - Logout feature is also provided.
 
@@ -92,7 +100,7 @@ Accounts
 - List of existing author and Categories is displayed on the left side of the home Page to advance search
 - Search provided at the at the left of the page to Search books on any search keywords
 - A Carousal displaying 2 random images from different websites at a set interval.
-- If a valid user logs in displays a message "Welcome "
+- If a valid user logs in displays a message "Welcome <username>"
 
 *Pages* : base .html and home.html
 
@@ -100,7 +108,7 @@ Accounts
 - Provide a link to Register if the user has not yet logged in
 - Clicking the login on the menu, directs the user to an input form to enter login details like username and password
 - The Login form provides validations for fields that are required and also checks if login is successful
-- Signing in the form creates opens the home page and clickable menu which now includes additional features Home, 
+- Signing in the form creates opens the home page and clickable menu which now includes additional features Home, Browse All, Profile, Log Out, Cart
 - Clicking on the Logout initiates a session time out and the user lands again on the home page with the additional features removed
 
 *Pages* : Login.html
@@ -217,20 +225,19 @@ Accounts
 **Footer- Social media** "Test PASS"
 
 - Social media link - Clicked the social media icon i.e. github and confirmed it directs you to the desired site.
-- On small devices the social media and copyright are centered on the webpage.
-- Go to top link in the footer directs the user to the tp of the page
+- On small devices the social media is centered on the webpage.
 
 **Browse All( product_list.html)** "Test PASS"
 - Tested that pagination works and displays 6 books at a time from the list of collection of books.
 - The navigation links on the pagination also works as desired
-- - Filtering criteria on the left side when clicked directs to the list of books with selection criteria results displayed
+- Filtering criteria on the left side when clicked directs to the list of books with selection criteria results displayed
 - Search functionality works for any keywords keyed in the text box
 - Sorting functionality based on prices works as desired and displays books based on sorting criteria low to high price and high to low price
 - Clicking any of the book cards on a page opens the detailed information of the book.
 - Clicking the add to cart button in the book cards adds the book to the cart
 
 **Product detail(product_detail.html)** "Test PASS"
-- Tested that the countof views gets incremented when any user browses a book detail
+- Tested that the count of views gets incremented when any user browses a book detail
 - The number of reviews for that particular book is displayed
 - Tested that Add to Cart and View Cart buttons do the desired actions
 - Tested that only after logging in a user can write a review about a book.
@@ -266,7 +273,7 @@ Year:  2022
 - Login page tested for username:helen and password:helen_123
 
 **Site administrator Dashboard**
-- Tested that valid entries can be made to each of thye models in the database created locally
+- Tested that valid entries can be made to each of the models in the database created locally
 
 ![IMAGE](static/images/DashBoard.jpg)
 
