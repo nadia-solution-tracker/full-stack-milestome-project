@@ -30,8 +30,8 @@
         </div>
         <div class="display">
             <form action="{% url 'search' %}" method="GET">
-                <input type="text" name='q' placeholder="Search"/>
-                <input type="submit" value="Search"/>
+                <input type="text" name='q' placeholder="Search by any keyword" size="20"/><br/><br/>
+                <button class="btn btn-success" type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
         </div>
         <br/>
@@ -44,18 +44,18 @@
           {% for product in products %}
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="{% url 'product_detail' product.id %}"><img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
+                <a href="{% url 'product_detail' product.id %}"><img class="card-img-top store_product_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""></a>
                 <div class="card-body">
                   <span class="one-line">
                     <strong>
-                    <a href="{% url 'product_detail' product.id %}">{{product.name}}</a></strong>
-                  </span><br/>
-                  <span class="one-line">{{ product.author }}</span><br/><br/>
-                  <strong>${{product.price}} CAD</strong><br/>
+                    <a  class="store_product_title" href="{% url 'product_detail' product.id %}">{{product.name}}</a></strong>
+                  </span>
+                  <span class="one-line store_product_title">{{ product.author }}</span>
+                  <strong class="store_product_price">${{product.price}} CAD</strong><br/>
                   {% if product.instock > 0 %}
-                    <span>In Stock</span>
+                    <span class="store_product_title">In Stock</span>
                     {% else %}
-                    <span>Out of Stock</span>
+                    <span class="store_product_title">Out of Stock</span>
                   {% endif %}
                 </div>
                 <div class="card-footer">

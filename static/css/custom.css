@@ -229,7 +229,8 @@ button > i{
 {
     .store_product_image,
     .store_product_title,
-    .store_product_price{
+    .store_product_price,
+    .product_image_detail{
           display: block;
           margin-left: auto;
           margin-right: auto;
@@ -237,6 +238,15 @@ button > i{
     }  
     .btnAddToCart{
          margin-left:80px;
+    }
+    .product_description_detail{
+        padding-left: 30px;
+        padding-right: 30px;
+        text-align: justify; 
+        
+    }
+    .btnPreviousPage{
+        margin-left: 80px;
     }
 }
 

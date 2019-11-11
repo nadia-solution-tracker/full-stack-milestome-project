@@ -24,8 +24,14 @@
           </div>
       </div>
       <!-- /.col-lg-3 -->
+     
 
       <div class="col-lg-9">
+          {% if user.is_authenticated %}
+            <div style="text-align:center" class="title">Hi {{ user.username }}! Welcome to World of ONLINE Shopping!!</div>
+          {% else %}
+            <p style="text-align:center" class="title">You are not logged in Login to Shop </p>
+          {% endif %}
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
