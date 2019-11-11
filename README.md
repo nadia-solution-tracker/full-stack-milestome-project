@@ -27,7 +27,7 @@
 ### Insights of the project
 - Customer can purchase books online. 
 - Through this web browser the customers can search for a book by its title or author, or specific keywords.
-- Sorting feature based on price both ascending and descending is also provided to ease search of a product
+- Sorting feature based on price both ascending and descending is also provided to ease search of a product 
 - Allows users to see specific details about a book like book title, price, author name, description, instock and total views. 
 - Books currently instock and total views are also displayed to help users to search efficiently.These fields update buy a book or views the product details respectively.
 - Using Authentication mechanism a user can login using his account details or new customers can set up an account very quickly
@@ -193,7 +193,7 @@ Accounts
 ** Bootstrap 4.3**-developing responsive HTML pages
 
 **JQuery**
-- This project uses Jquery to simplify DOM manipulation and provide better UX.
+- This project uses Jquery to simplify DOM manipulation and provide better UX. Sorting feature implemented using Jquery
 
 **Backend Database**
 - For local development used sqlite3
@@ -409,6 +409,12 @@ Bugs and Solutions
     });
     </script>
 ```
+
+
+- Deployment to Heroku gave this error
+You may need to update application code to resolve this error.Or, you can disable collectstatic for this application:
+          $ heroku config:set DISABLE_COLLECTSTATIC=1
+Resolved by setting Config vars are environment variables DISABLE_COLLECTSTATIC value 1
 
 <a name="acknowledgement"></a>
 ## Acknowledgements
