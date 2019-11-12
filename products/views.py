@@ -77,7 +77,7 @@ def show_products_category(request, category_name):
     category_select = Category.objects.get(name=category_name)
     product_pagination = Product.objects.filter(category = category_select).order_by('name')
     page = request.GET.get('page', 1)
-    paginator = Paginator(product_pagination , 3)
+    paginator = Paginator(product_pagination , 6)
     try:
         products= paginator.page(page)
     except PageNotAnInteger:

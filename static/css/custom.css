@@ -85,6 +85,7 @@ legend{
     font-weight: bold;
     font-size:40px;
 }
+
 /* Product List styles */
 .display{
     padding-top: 20px;
@@ -124,6 +125,13 @@ legend{
     overflow: hidden;
     white-space: nowrap;
     word-wrap: break-word;
+}
+
+.store_product_image{
+    width:250px;
+    height:350px;
+    padding:20px;
+
 }
 
 
@@ -181,14 +189,9 @@ button > i{
     margin: 0 auto;
 }
 
-/* Product_List style */
-.store_product_image{
-    width:250px;
-    height:350px;
-    padding:20px;
-
+.btnCheckout{
+    float: right;
 }
-
 
 /* Pagination */
 .pagination {

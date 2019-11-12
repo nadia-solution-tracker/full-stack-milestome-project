@@ -75,6 +75,7 @@ def register(request):
     return render(request, 'register.html', args)
 
 @login_required
+#https://stackoverflow.com/questions/47188250/avoid-user-pk-in-django-user-edit-form
 def edit_profile(request):
     """A view that edits user profile"""
     if request.method == 'POST':
