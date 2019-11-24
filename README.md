@@ -7,11 +7,12 @@
 3. [ User Stories ](#userstories)
 4. [ Design Process ](#design)
 5. [ Features](#features)
-6. [ Technologies Used ](#technologies)
-7. [ Testing ](#testing)
-8. [ Deployment ](#deployment)
-9. [ Credits ](#credits)
-10. [ Acknowledgements ](#acknowledgement)
+6. [ Features Left to Implement](#featuresleft)
+7. [ Technologies Used ](#technologies)
+8. [ Testing ](#testing)
+9. [ Deployment ](#deployment)
+10. [ Credits ](#credits)
+11. [ Acknowledgements ](#acknowledgement)
 
 <a name="overview"></a>
 ### Overview of the project
@@ -161,6 +162,7 @@ The following features are added to the application which is geared towards enha
 
 *Pages* : checkout.html
 
+<a name="featuresleft"></a>
 #### Features Left to Implement
 - Order History for a specific user ater successful login
 - Custom storage using S3 Amazon Buckets- This has been given issues required me to contact amazon S3 administrator to activate disbled buckets
@@ -213,6 +215,7 @@ however it did not work.
 
 **Other Services used**
 - Travis CI : for continuous Integration testing
+- [![Build Status](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project.svg?branch=master)](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project)
 
 <a name="testing"></a>
 ## Testing
