@@ -32,6 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
                         <li class="nav-item"><a  class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
                     {%  else %}
+                        <li class="nav-item"><a href="{% url 'home_page' %}" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="{% url 'products' %}" class="nav-link">Browse All</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
                         <li class="nav-item"><a  class="nav-link" href="{% url 'login' %}">Log In</a></li>

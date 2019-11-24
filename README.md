@@ -16,8 +16,9 @@
 <a name="overview"></a>
 ### Overview of the project
 - The main objective of this Ecommerce Website is to manage the details of Books, Stock,User Sessions and Profile, Order and Payment.
-- The Online book store also allows users to search and purchase a book online based on title, author and other keywords. 
-- The selected books are displayed in a tabular format in a cart and the user can order their books online through credit card payment. 
+- The Online book store also allows users to search and purchase a book online based on title, author and other keywords,it also provides a 
+- sorting feature based on price. 
+- The website provides a authentication mechanism and also a paid access to the selected books.
 - Using this Website the user can purchase a book online instead of going out to a book store and wasting time.
 
 ![IMAGE](static/images/HomePage.jpg)
@@ -29,26 +30,28 @@
 - Through this web browser the customers can search for a book by its title or author, or specific keywords.
 - Sorting feature based on price both ascending and descending is also provided to ease search of a product 
 - Allows users to see specific details about a book like book title, price, author name, description, instock and total views. 
-- Books currently instock and total views are also displayed to help users to search efficiently.These fields update buy a book or views the product details respectively.
+- Books currently instock and total views are also displayed to help users to search efficiently.
+  These fields update when user buys a book or views the product details respectively.
 - Using Authentication mechanism a user can login using his account details or new customers can set up an account very quickly
 - Users can also edit their profile information after succesfully logging in.
 - Books can be added to the shopping cart and finally purchase using credit card transaction
 - Users have to register to persist their shopping cart between sessions
 - The user can also write reviews about a book by giving ratings on a score of five. 
 - Pagination feature allows users concentrate on a particular amount of content
-- The books are divided into many categories based on subject like Fiction, Comics, Gospel etc.
+- The books are divided into many categories based on subject like Fiction, Kids, Gospel etc.
 
 
 <a name="userstories"></a>
 #### User Stories
 **"Rochelle loves books and wants to buy one of her favourites"**
-- As a user she can browse through the list of books ,or browse through book based on Authors ,Categories or search keywords. 
+- As a user she can browse through the list of books ,or browse through book based on book title,author or any search keywords. 
 Sorting feature can also advance her search if she wishes to browse based on price.
 - Pagination feature at the bottom on the page will display particular number of books in pages giving her a to focus on few books at a time.
 - As a user she can click the individual book she finds to see more information and even see reviews about the book
 
 **"Rochelle wants to purchase a book"**
-- As a user, finding the book of her choice  she can add the book to the cart. The  cart functionality allows her to update quantity or delete the total items she buying 
+- As a user, finding the book of her choice  she can add the book to the cart. The  cart functionality allows her to update 
+  quantity or delete the total items she buying 
 - As a user , buying the book requires her to register herself and proceed to checkout
 - As a user she can use the checkout functionality to process her order and get the book she is interested in.
 
