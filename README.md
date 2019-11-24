@@ -216,6 +216,7 @@ however it did not work.
 **Other Services used**
 - Travis CI : for continuous Integration testing
 - [![Build Status](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project.svg?branch=master)](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project)
+- ![IMAGE](static/images/TravisPassed.jpg)
 
 <a name="testing"></a>
 ## Testing
