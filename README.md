@@ -15,9 +15,8 @@
 
 <a name="overview"></a>
 ### Overview of the project
-- The main objective of this Ecommerce Website is to manage the details of Books, Stock,User Sessions and Profile, Order and Payment.
-- The Online book store also allows users to search and purchase a book online based on title, author and other keywords,it also provides a 
-- sorting feature based on price. 
+- The main objective of this Ecommerce Website is to manage the details of Books, Stock,User Sessions and Profile, Orders and Payment.
+- The Online book store also allows users to search and purchase a book online based on title, author and other keywords,it also provides a sorting feature based on price. 
 - The website provides a authentication mechanism and also a paid access to the selected books.
 - Using this Website the user can purchase a book online instead of going out to a book store and wasting time.
 
@@ -27,17 +26,17 @@
 ## UX
 ### Insights of the project
 - Customer can purchase books online. 
-- Through this web browser the customers can search for a book by its title or author, or specific keywords.
-- Sorting feature based on price both ascending and descending is also provided to ease search of a product 
+- Through this ecommerce site the customers can search a book by title , author, or specific keywords.
+- Sorting feature based on price both ascending and descending is also provided to ease search of a product. 
 - Allows users to see specific details about a book like book title, price, author name, description, instock and total views. 
 - Books currently instock and total views are also displayed to help users to search efficiently.
   These fields update when user buys a book or views the product details respectively.
-- Using Authentication mechanism a user can login using his account details or new customers can set up an account very quickly
-- Users can also edit their profile information after succesfully logging in.
-- Books can be added to the shopping cart and finally purchase using credit card transaction
-- Users have to register to persist their shopping cart between sessions
-- The user can also write reviews about a book by giving ratings on a score of five. 
-- Pagination feature allows users concentrate on a particular amount of content
+- Using Authentication mechanism a user can login using his account details or new customers can set up an account very quickly.
+- Users can also edit profile information after succesfully logging in.
+- Books can be added to the shopping cart and finally purchase using credit card transaction.
+- Users have to register to persist their shopping cart between sessions.
+- The user can also write reviews about a book only after successful login by giving ratings on a score of five. 
+- Pagination feature allows users concentrate on a particular amount of content.
 - The books are divided into many categories based on subject like Fiction, Kids, Gospel etc.
 
 
@@ -56,7 +55,7 @@ Sorting feature can also advance her search if she wishes to browse based on pri
 - As a user she can use the checkout functionality to process her order and get the book she is interested in.
 
 **"Kate as a returning customer"**
-- As a user , she can leave a review about the book by leaving comments and ratings out of 5 for others to see.This would help other customers to make a choice about buying the book or no.
+- As a user , she can leave a review about the book by leaving comments and ratings out of 5 for others to see.This would help other customers to make a choice about buying the book.
 
 **"John does not find the book instore"**
 - As a user ,he can access this website to check if an item is in stock or not, and proceed to buying .
@@ -87,23 +86,23 @@ The following features are added to the application which is geared towards enha
 
 **Apps**
 
-Home
-Cart
-Products
-Purchases
-Search
-Reviews
-Accounts
+- Home
+- Cart
+- Products
+- Purchases
+- Search
+- Reviews
+- Accounts
 
 **Home**- serves as an initial landing page for all users. Users are able to access the following :
-- A static clickable navigation menu with items like Home, Browse All , Login, Register
+- A static clickable navigation menu with items like Home, Browse All , Register, Login, Cart
 - Have a snick peek at the top 3 most popular books as card.
 - Add to cart button will add the book to the cart.
 - Clicking the book title or the book cover image redirects to book detail page to see more information about the book
-- List of existing author and Categories is displayed on the left side of the home Page to advance search
-- Search provided at the at the left of the page to Search books on any search keywords
+- List of book categories and top best sellers list are displayed on the left side of the home Page to advance search
+- Search control is provided on the left of the page to faciliate search based on search criteria.
 - A Carousal displaying 2 random images from different websites at a set interval.
-- If a valid user logs in displays a message "Welcome <username>"
+- If a valid user logs in displays a message "Welcome <username>" if not logged in a message "You are not logged in Login to Shop" is displayed.
 
 *Pages* : base .html and home.html
 
@@ -118,23 +117,23 @@ Accounts
 
 **Browse all**  this page displays a wide collection of books.
 *The search section*
-- Provides a list for a filtered view based on the following criteria Category and Author
+- Provides a list for a filtered view based on the following criteria Category and top 10 best selling books.
 - Search option - search for books by book title, most important by author,categories or specific keywords.
 - Sorting feature to sort book based on price low to high and high to low is also provided in form of a drop down
 
 *The book collection section*
 - When this page is first time loaded a list of books  are displayed in form of a card  which the user can browse.
 - Pagination feature is incorporated so that users do not get lost and can concentrate on a particular amount of content, the page display 6 books at each time. The user can view the list of next 6 books by clicking on the pagination links provided at the bottom of the page.
-- Clicking a book card opens up detail information about the book.
+- Clicking a book card opens up detailed information about that book.
 
 **Searched Books**– this page displays list of books based on filtered criteria
-- Provides users with book cards of books based on search criteria Results for: Fiction
-- The user can also get back to the book page by clicking |browse all” link in the menu.
+- Provides users with book cards of books based on search criteria.
+- The user can also get back to the book page by clicking the "browse all” link on the navigation bar.
 - Pagination feature is incorporated so that users do not get lost and can concentrate on a particular amount of content, the page display 6 books at each time.
 - The user can view the list of next 6 books by clicking on the pagination links provided at the bottom of the page
 
 **Book Detail**
-- individual book page accessed through clicking the book image or the book title link provided in the card.
+- Individual book page accessed through clicking the book image or the book title link provided in the card.
 - It uses an entire page to display a full book information with larger text and the book image at its full capacity to the user.
 - Upon viewing it increments the book view count. 
 - If a valid user has logged in he/she will be able to leave a comment and rating about the book.
@@ -144,8 +143,9 @@ Accounts
 **Review**
 - The review form provided in the product detail page allows a valid logged in user to leave a comment and rating out of 5 for the book displayed
 - This comment is than added to the list of customer reviews
-- If the user has not logged in he/she will be shown a message to loggin to leave a comment however he/she will be able to view other customer reviews
-
+- If the user has not logged in he/she will be shown a message to log in to leave a comment however he/she will be able to view other customer reviews
+- The total count of reviews left by all users in also displayed on the rpoduct detail page.
+-
 **Cart**
 - Adding a book to the cart will display a clickable cart option in the menu displaying the total items in the cart.
 - The cart can be viewed by clicking the cart link on the menu bar.
@@ -155,11 +155,17 @@ Accounts
 *Pages* : cart.html
 
 **Checkout**
-- Clicking the checkout button on the cart page redirects the user to the checkout page again giving the final list of the items with the cart as well as the total amount. This is the order placed by a valid customer
+- Clicking the checkout button on the cart page redirects the user to the checkout page again giving the final list of the items with the cart as well as the total amount. This is the order placed by a logged in customer
 - This page also provided a form to enter payment details like customer information and credit card information
 - Submitting an order finally saves the order for the customer for processing (not implemented) as well as updates the quantity in stock for the product.
 
 *Pages* : checkout.html
+
+#### Features Left to Implement
+- Order History for a specific user ater successful login
+- Custom storage using S3 Amazon Buckets- This has been given issues required me to contact amazon S3 administrator to activate disbled buckets
+however it did not work.
+
 
 <a name="technologies"></a>
 ## Technologies Used
@@ -193,7 +199,7 @@ Accounts
 **CSS3**: to style webpage, I used external stylesheet, file located in static/css/custom.css .<br/>
 **Google Fonts**: for additional font-family options https://fonts.google.com/.<br/>
 **Font Awesome**: for social media icons and envelope icon https://fontawesome.com/.<br/>
-** Bootstrap 4.3**-developing responsive HTML pages
+**Bootstrap 4.3**-developing responsive HTML pages
 
 **JQuery**
 - This project uses Jquery to simplify DOM manipulation and provide better UX. Sorting feature implemented using Jquery
@@ -205,8 +211,7 @@ Accounts
 **Version Control**
 - Git and GitHub
 
-** Other Services used**
-- Amazon S3 Bucket
+**Other Services used**
 - Travis CI : for continuous Integration testing
 
 <a name="testing"></a>
@@ -245,13 +250,14 @@ Accounts
 - Tested that Add to Cart and View Cart buttons do the desired actions
 - Tested that only after logging in a user can write a review about a book.
 - Back to Previous Page directs the user to the Book Collection 
-
-**Cart(cart.html)**"Test PASS"
+- View Cart directs the user to the cart information
+- 
+**Cart(cart.html)** "Test PASS"
 - Tested that a quantity of a book can be updated this reflects a newprice total.
 - Remove on clicked removes the item from the cart.
 - Checkout will direct to the checkout page provided the users has successfully logged in ,if no the user willbe directed to the Login Page
 
-**Checkout(checkout.html)**"Test PASS"
+**Checkout(checkout.html)** "Test PASS"
 - Confirms an order placed by the user.
 - Tested that after succesfully filling credit card details the order information is stored in Orders for that user.
 - Test data used fro Credit Card is 4242424242424242
