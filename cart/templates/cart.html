@@ -18,7 +18,7 @@
             {% for item in cart_items %}
             <tr>
                 <td>
-                    <div class="cart-thumbnail-image" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+                   <div class="cart-thumbnail-image" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
                 </td>
                 <td>{{ item.product.name }}</td>
                 <td>{{ item.quantity }} </td>

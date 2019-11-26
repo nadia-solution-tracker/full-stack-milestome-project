@@ -1,5 +1,8 @@
 # [Online Book Store Ecommerce Website](https://online-book-store-ecommerce.herokuapp.com/)
 
+[![Build Status](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project.svg?branch=master)](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project)
+
+
 **Table of Contents**
 
 1. [ Overview of the project ](#overview)
@@ -215,7 +218,6 @@ however it did not work.
 
 **Other Services used**
 - Travis CI : for continuous Integration testing
-- [![Build Status](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project.svg?branch=master)](https://travis-ci.org/nadia-solution-tracker/full-stack-milestome-project)
 - ![IMAGE](static/images/TravisPassed.jpg)
 
 <a name="testing"></a>
