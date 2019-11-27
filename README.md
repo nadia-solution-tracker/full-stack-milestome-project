@@ -388,7 +388,13 @@ web: gunicorn bookstore.wsgi:application
 ALLOWED_HOSTS = [‘online-book-store-ecommerce.herokuapp.com’]
 ```
 10.Commit and push
+
 11.Do automatic deploy from git by connect heroku to git master
+
+12.Finally check that all config vars are set up on heroku,Some of the var set are
+DATABASE_URL, DISABLE_COLLECTSTATIC, SECRET_KEY, STRIPE_PUBLISHABLE, STRIPE_SECRET
+
+Final Project Deployed on [Online Book Store Ecommerce Website](https://online-book-store-ecommerce.herokuapp.com/)
 
 
 <a name="credits"></a>
