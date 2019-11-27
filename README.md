@@ -167,7 +167,7 @@ The following features are added to the application which is geared towards enha
 
 <a name="featuresleft"></a>
 #### Features Left to Implement
-- Order History for a specific user ater successful login
+- Order History for a specific user after successful login
 - Custom storage using S3 Amazon Buckets- This has been given issues required me to contact amazon S3 administrator to activate disbled buckets
 however it did not work.
 
