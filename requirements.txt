@@ -13,7 +13,7 @@ configobj==5.0.6
 constantly==15.1.0
 cryptography==2.1.4
 dj-database-url==0.5.0
-Django==1.11
+Django==1.11.29
 django-forms-bootstrap==3.1.0
 docutils==0.14
 gunicorn==19.9.0
