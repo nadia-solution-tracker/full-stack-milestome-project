@@ -19,7 +19,7 @@ docutils==0.14
 gunicorn==19.9.0
 idna==2.6
 isort==4.3.21
-Jinja2==2.10
+Jinja2==2.11.3
 jmespath==0.9.4
 Pillow==5.1.0
 psycopg2-binary==2.8.4
